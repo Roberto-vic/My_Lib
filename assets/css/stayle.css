@@ -1,0 +1,25 @@
+.nav-link{
+    color: #0d3b66 !important;
+}
+
+ul, li{
+    margin-right: 25px;
+}
+
+.header{
+    background-color:#F4D35E!important ;
+}
+
+.btn{
+    border-color: #F95738 !important;
+    color: #F95738;
+}
+
+hr{
+    background-color: #F95738;
+    border: none;
+    border-radius: 25%;
+    width: 100px !important;
+    height: 5px;
+    margin: 10px auto !important;
+}
