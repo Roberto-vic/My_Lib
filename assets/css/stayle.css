@@ -23,3 +23,9 @@ hr{
     height: 5px;
     margin: 10px auto !important;
 }
+
+.card img{
+    margin-top: 15px;
+    height: 20rem !important;
+    width: auto;
+}

@@ -19,8 +19,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg" style="background-color: #F4D35E;">
         <div class="container-fluid">
-            <i class="fa-solid fa-book-open-reader" style="color: #e56815;">
-                <a class="navbar-brand my-auto" href="#" style="color: #e56815;"></i>My_Lib</a>
+            <i class="fa-solid fa-book-open-reader" style="color: #e56815;"></i>
+            <a class="navbar-brand my-auto" href="#" style="color: #e56815;">My_Lib</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,9 +31,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Neuogkeiten</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Autoren</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Öffnungszeiten</a>
@@ -57,10 +54,11 @@
             <div class="col-lg-4 offset-lg-2" style="color: #0d3b66">
                 <h2 class="mt-5 pt-3">Willkommen in My_Lib</h2>
                 <p class="mt-5">
-                    Hier findest du alle Informationen über die Leihbücherei: Öffnungszeiten, Ausleihbestimmungen,... Sie können in unserem Katalog mit mehr als 7000 Titeln nach Büchern suchen und viele andere Dinge tun
+                    Hier findest du alle Informationen über die Leihbücherei: Öffnungszeiten, Ausleihbestimmungen,...
+                    Sie können in unserem Katalog mit mehr als 7000 Titeln nach Büchern suchen und viele andere Dinge tun
                 </p>
                 <div class="btn btn-lg border rounded-pill">Buch suchen</div>
-                <p class="mt-2">oder besuche uns</p>
+                <p class="mt-2">oder besuche uns !!!</p>
             </div>
             <div class="col-lg-4 text-center">
                 <img src="./assets/img/1.png" alt="">
@@ -77,8 +75,44 @@
             <div class="col-lg-6 offset-3 text-center">
                 <h2 class="mt-5 pt-4">Letzte Einkäufe und Neuigkeiten</h2>
                 <hr>
+                <p>Wir zeigen die neuesten Bücher im Katalog</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-group mx-5 my-3">
+                    <div class="card shadow me-1" style="width: 18rem;">
+                        <img src="./assets/img/2.jpeg" class="card-img-top mx-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow me-1" style="width: 18rem;">
+                        <img src="./assets/img/3.jpeg" class="card-img-top mx-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow me-1" style="width: 18rem;">
+                        <img src="./assets/img/4.jpeg" class="card-img-top mx-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow" style="width: 18rem;">
+                        <img src="./assets/img/5.jpeg" class="card-img-top mx-3" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <!-- /Neues -->
