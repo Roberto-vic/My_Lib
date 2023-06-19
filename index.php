@@ -17,7 +17,7 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #F4D35E;">
+    <nav class="navbar navbar-expand-lg pb-5 position-sticky top-0 position-relative" style="background-color: #F4D35E;">
         <div class="container-fluid">
             <i class="fa-solid fa-book-open-reader" style="color: #e56815;"></i>
             <a class="navbar-brand my-auto" href="#" style="color: #e56815;">My_Lib</a>
@@ -27,16 +27,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Neuogkeiten</a>
+                        <a class="nav-link" href="#neu">Neuogkeiten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Öffnungszeiten</a>
+                        <a class="nav-link" href="#zeit">Öffnungszeiten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kontakt</a>
+                        <a class="nav-link" href="#kontakt">Kontakt</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
@@ -49,7 +49,7 @@
     <!-- /Navigation -->
 
     <!-- header -->
-    <div class="container-fluid header py-5 ">
+    <div class="container-fluid header py-5 mb-5" id="home">
         <div class="row">
             <div class="col-lg-4 offset-lg-2" style="color: #0d3b66">
                 <h2 class="mt-5 pt-3">Willkommen in My_Lib</h2>
@@ -70,9 +70,9 @@
 
     <!-- Neues -->
 
-    <div class="container" style="color: #0d3b66">
+    <div class="container my-5 py-5" style="color: #0d3b66">
         <div class="row">
-            <div class="col-lg-6 offset-3 text-center">
+            <div class="col-lg-6 offset-3 text-center" id="neu">
                 <h2 class="mt-5 pt-4">Letzte Einkäufe und Neuigkeiten</h2>
                 <hr>
                 <p>Wir zeigen die neuesten Bücher im Katalog</p>
@@ -117,6 +117,116 @@
 
     <!-- /Neues -->
 
+    <!-- Öffnungszeit -->
+
+    <div class="container-fluid my-5 py-5" style="background-color: #0d3b66;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 text-center" id="zeit">
+                <h2 class="mt-5 pt-4" style="color:#F4D35E">Öffnungszeiten</h2>
+                <hr>
+                <p style="color: #F4D35E;">Wir sind von Montag bis Samstag für sie da !!</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4 my-5">
+                <table class="table table-borderless text-center mt-3 mb-5">
+                    <thead>
+                        <tr>
+                            <th>Öffnungszeit</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">Montag</th>
+                            <th> 9 - 18 </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Dienstag</th>
+                            <th> 9 - 18 </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Mittwoch</th>
+                            <th> 9 - 18 </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Donnerstag</th>
+                            <th> 9 - 18 </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Freitag</th>
+                            <th> 9 - 18 </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Samstag</th>
+                            <th> 9 - 15 </th>
+                        </tr>
+                        <tr>
+                            <th scope="col">Sonntag</th>
+                            <th> Geschlossen </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- /Öffnungszeit -->
+
+    <!-- Kontakt -->
+
+    <div class="container-fluid my-5 py-4">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-1 my-5" id="kontakt">
+                <div class="mb-3">
+                    <label for="" class="form-label">Name: </label>
+                    <input type="text" class="form-control" id="" placeholder="name" require>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Email: </label>
+                    <input type="email" class="form-control" id="" placeholder="name@example.com" require>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Nachricht: </label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" require></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" value="Senden" class="btn btn-lg border rounded-pill">
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1 text-center my-5">
+                <h2 style="color: #0d3b66;">Kontakt</h2>
+                <hr>
+                <p style="color: #0d3b66;">Schreiben Sie uns Ihre Eindrücke, Vorschläge und/oder Ratschläge, wenn Sie etwas wissen möchten oder Informationen erhalten möchten</p>
+                <br>
+                <p style="color: #0d3b66;" class="py-3">Unser Hauptsitz befindet sich in: <br>
+                    Steintorwall 234 <br>
+                    20031 Hamburg <br><br>
+                    Telefon: 040/2354367 <br>
+                    Mail: my_lib@test.de
+                </p>
+                <div class="container-fluid">
+                    <span class="me-4"><i class="fa-brands fa-facebook fa-xl" style="color: #0b5be5;"></i></span>
+                    <span><i class="fa-brands fa-instagram fa-xl" style="color: #ed12be;"></i></span>
+                    <span class="ms-4"><i class="fa-brands fa-twitter fa-xl" style="color: #01cff9;"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /Kontakt -->
+
+    <!-- Footer -->
+
+    <div class="container-fluid mt-5 py-5" style="background-color: #0d3b66;">
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4" style="color: #F4D35E;">
+                &copy; Copyright MyLib <?php echo date('Y'); ?> - All Rights Reserved
+            </div>
+        </div>
+    </div>
+
+    <!-- /Footer -->
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
