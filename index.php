@@ -16,11 +16,12 @@
 </head>
 
 <body>
+    <div class="overflow-x-scroll">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg pb-5 position-sticky top-0 position-relative" style="background-color: #F4D35E;">
+    <nav class="navbar navbar-expand-lg pb-5" style="background-color: #F4D35E;">
         <div class="container-fluid">
-            <i class="fa-solid fa-book-open-reader" style="color: #e56815;"></i>
-            <a class="navbar-brand my-auto" href="#" style="color: #e56815;">My_Lib</a>
+            
+            <a class="navbar-brand my-auto" href="#" style="color: #e56815;"><i class="fa-solid fa-book-open-reader mx-3" style="color: #e56815;"></i>My_Lib</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -227,6 +228,7 @@
     </div>
 
     <!-- /Footer -->
+    </div>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
