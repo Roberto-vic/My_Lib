@@ -1,21 +1,22 @@
-.nav-link{
+.nav-link {
     color: #0d3b66 !important;
 }
 
-ul, li{
+ul,
+li {
     margin-right: 25px;
 }
 
-.header{
-    background-color:#F4D35E!important ;
+.header {
+    background-color: #F4D35E !important;
 }
 
-.btn{
+.btn {
     border-color: #F95738 !important;
     color: #F95738;
 }
 
-hr{
+hr {
     background-color: #F95738;
     border: none;
     border-radius: 25%;
@@ -24,7 +25,7 @@ hr{
     margin: 10px auto !important;
 }
 
-.card img{
+.card img {
     margin-top: 15px;
     height: 20rem !important;
     width: auto;
