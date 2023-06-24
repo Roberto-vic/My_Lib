@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap');
+
 body{
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
 
+.navbar{
+    background-color: #F4D35E;
+    padding: 1.5em;
+}
 .btn {
     border-color: #F95738 !important;
     color: #F95738;
@@ -9,28 +16,4 @@ body{
 
 .nav-link {
     color: #0d3b66 !important;
-}
-
-#sidebar{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 99999;
-    max-width: 14vw !important;
-    background-color: #f4d35e;
-}
-
-#sidebar .nav-item{
-    padding: 6px !important;
-}
-
-.vertical-nav{
-    margin-top: 8vh !important;
-}
-
-/* footer */
-
-.footer{
-    z-index: 1000000;
 }
