@@ -25,7 +25,7 @@
             Steintorwall 234 <br>
             20031 Hamburg <br><br>
             Telefon: 040/2354367 <br>
-            Mail: my_lib@test.de
+            Mail: realitaetespause@test.de
         </p>
         <div class="container-fluid">
             <span class="me-4"><i class="fa-brands fa-facebook fa-xl" style="color: #0b5be5;"></i></span>

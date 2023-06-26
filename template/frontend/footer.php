@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-4 offset-lg-4" style="color: #F4D35E;">
-        &copy; Copyright MyLib <?php echo date('Y'); ?> - All Rights Reserved
+        &copy; Copyright Realitätspause <?php echo date('Y'); ?> - All Rights Reserved
     </div>
 </div>
 </div>

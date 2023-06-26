@@ -6,7 +6,6 @@ include("config.php");
         <!-- Navigation -->
 
         <?php
-        echo "<h1> Ueberschrift</h1>";
 
         include(FRONT_END . DS . "nav.php");
 
