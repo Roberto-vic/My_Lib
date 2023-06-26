@@ -17,3 +17,12 @@ body{
 .nav-link {
     color: #0d3b66 !important;
 }
+
+.side{
+    background-color: #F4D35E;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
+}
