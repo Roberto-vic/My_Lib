@@ -19,6 +19,9 @@
     <!-- Style -->
     <link rel="stylesheet" href="../assets/css/styleAdmin.css">
 
+    <!-- CKEditor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+
 </head>
 
 <body>
@@ -26,7 +29,7 @@
         <!-- Top nav -->
         <div class="container-fluid">
             <nav class="navbar fixed-top">
-                <a class="navbar-brand ms-4" href="../index.php"><i class="fa-solid fa-screwdriver-wrench" style="color: #e56815;"> RP Dashboard</i></a>
+                <a class="navbar-brand ms-4" href="../index.php"><i class="fa-solid fa-book-open-reader" style="color: #e56815;"> RP Dashboard</i></a>
                 <form class="d-flex ms-auto w-50" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline" type="submit">Suchen</button>
@@ -48,21 +51,21 @@
     <!-- /Top nav -->
 
     <!-- Sidebar -->
-    <div class="container-fluid">
+    <div class="container-fluid sticky-top">
         <div class="row">
             <div class="col side justify-content-center">
                 <ul class="nav flex-column ms-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Büchern</a>
+                        <a class="nav-link active" href="index.php?buecher">Büchern</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Kategorien</a>
+                        <a class="nav-link active" href="index.php?kategorie">Kategorien</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kunden</a>
+                        <a class="nav-link" href="index.php?kunden">Kunden</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Verlag</a>
+                        <a class="nav-link" href="index.php?verlag">Verlag</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Auf reise</a>
@@ -74,26 +77,19 @@
             <!-- /Sidebar -->
 
             <!-- Main -->
-            <div class="container d-flex float-end">
 
-                <div class="row">
-                <div class="col">
-                    <h1 class="text-center">
-                        Pannello di amministrazione
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li class="active">
-                            <i class="material-icons">dashboard</i> Dashboard
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            <?php include(BACK_END . DS . 'prodeinfuegen.php') ?>
+            <?php //include(BACK_END . DS . 'prodeinfuegen.php'); ?>
+            <?php //include(BACK_END . DS . 'buecher.php');?>
+            <?php //include(BACK_END . DS . 'kategorie.php');?>
+            <?php //include(BACK_END . DS . 'kunden.php');?>
+            <?php //include(BACK_END . DS . 'neuekunde.php');?>
+            <?php //include(BACK_END . DS . 'kundeupdate.php');?>
+            <?php //include(BACK_END . DS . 'verlag.php');?>
+            <?php //include(BACK_END . DS . 'verlagupdate.php');?>
 
             <!-- /Main -->
 
         </div>
-    </div>
     </div>
 
     <!-- Footer -->
@@ -110,6 +106,16 @@
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <!-- wisywyg -->
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
 </body>
 
 </html>

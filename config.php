@@ -9,6 +9,8 @@ defined('FRONT_END') ? null : define('FRONT_END', __DIR__ . DS . 'template/front
 
 defined('BACK_END') ? null : define('BACK_END', __DIR__ . DS . 'template/backend');
 
+defined('IMG_UPLOAD') ? null : define('IMG_UPLOAD', __DIR__ . DS . 'assets/img_art');
+
 // Ich definiere di costanten für das verbindung mit Database
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');

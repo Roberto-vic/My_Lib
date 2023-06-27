@@ -13,13 +13,13 @@ include_once("config.php")
     <!-- section -->
     <div class="container-fluid my-5">
         <div class="row">
-            <h1 class="text-center my-2">My_Lib - Buchsuche</h1>
+            <h1 class="text-center my-2">Realitätspause - Buchsuche</h1>
             <hr>
             <p class="text-center mb-3">Hier kannst du das gewünschte Buch nach Titel, Autor oder Genre suchen....</p>
         </div>
         <div class="col-lg-6 offset-lg-3">
             <div class="input-group my-4">
-                <input type="text" class="form-control" placeholder="zBS. - Der Herr der Ringe" aria-label="" aria-describedby="">
+                <input type="text" class="form-control" placeholder="zB. - Der Herr der Ringe" aria-label="" aria-describedby="">
                 <input type="submit" value="Suchen" class="btn btn-outline">
             </div>
             <br>
