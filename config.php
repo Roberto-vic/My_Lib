@@ -16,7 +16,9 @@ $dbh = new PDO("mysql:dbname=Projekt_Realitätspause;host=localhost", 'root', ''
 try{
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // echo "Bist du ferbindet";
+    // $dbh->exec($sql);
+
+    // echo "Du bist verbunden.";
 }catch(PDOException $e){
     echo $e->getMessage();
 }
