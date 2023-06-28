@@ -18,7 +18,7 @@ try{
 
     $dbh->exec($sql);
 
-    echo "Bist du ferbindet";
+    echo "Du bist verbunden.";
 }catch(PDOException $e){
     echo $e->getMessage();
 }
