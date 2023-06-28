@@ -15,9 +15,9 @@
                     <th>Verfügbarkeit</th>
                     <th></th>
                 </tr>
-            </thead>
+            </thead>  
             <tbody>
-                <?php buchListe(); ?>
+                <?php buchListe() ?>
 
                 <!-- <tr>
                     <td>20</td>

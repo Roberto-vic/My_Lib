@@ -13,15 +13,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php  ?>
+                    <?php kategorie(); ?>
 
-                    <tr>
+                    <!-- <tr>
                         <td>6</td>
                         <td>Fantasy</td>
                         <td>
                             <a href="" class="btn btn-outline btn-sm"><i class="fa-regular fa-trash-can fa-xs" style="color: #e56815;"></i> Delete</a>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
