@@ -11,14 +11,17 @@ defined('BACK_END') ? null : define('BACK_END', __DIR__ . DS . 'template/backend
 
 defined('IMG_UPLOAD') ? null : define('IMG_UPLOAD', __DIR__ . DS . 'assets/img_art');
 
-// Ich definiere di costanten für das verbindung mit Database
-// define('DB_HOST', 'localhost');
-// define('DB_USER', 'root');
-// define('DB_PASS', '');
-// define('DB_NAME', '');
+$dbh = new PDO("mysql:dbname=Projekt_Realitätspause;host=localhost", '', 'root');
 
-// $dbh = 'mysql:host= '. DB_HOST . ';dbname= ' . DB_NAME ;
-// $connect = new PDO($dbh, DB_USER, DB_PASS);
+try{
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $dbh->exec($sql);
+
+    echo "Bist du ferbindet";
+}catch(PDOException $e){
+    echo $e->getMessage();
+}
 
 
 require_once('functions.php');

@@ -80,12 +80,14 @@
 
             <?php //include(BACK_END . DS . 'prodeinfuegen.php'); ?>
             <?php //include(BACK_END . DS . 'buecher.php');?>
-            <?php //include(BACK_END . DS . 'kategorie.php');?>
+            <?php include(BACK_END . DS . 'kategorie.php');?>
             <?php //include(BACK_END . DS . 'kunden.php');?>
             <?php //include(BACK_END . DS . 'neuekunde.php');?>
             <?php //include(BACK_END . DS . 'kundeupdate.php');?>
             <?php //include(BACK_END . DS . 'verlag.php');?>
             <?php //include(BACK_END . DS . 'verlagupdate.php');?>
+            <?php //include(BACK_END . DS . 'aufreise.php');?>
+            <?php //include(BACK_END . DS . 'verleihen.php');?>
 
             <!-- /Main -->
 
