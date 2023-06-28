@@ -30,27 +30,39 @@ function last_id(){
     return $dbh->lastInsertId();
 }
 
-function buchListe() {
-    $sql = "SELECT * FROM bücher";
+function buchListe()
+{
+    $sql = "SELECT b.Signatur, b.Titel, k.Kategorie_Name, b.Verlag, b.ISBN, a.name, a.vorname
+            FROM bücher b
+            INNER JOIN geschrieben g ON b.Signatur = g.Signatur
+            INNER JOIN kategorie k ON b.Kategorie = k.Kategorie_ID
+            INNER JOIN autoren a ON g.Autor_Nr = a.Autor_ID";
     $result = query($sql);
     confirm($result);
 
-    $buch = "";
+    $buch = '';
 
-    foreach($result as $inhalt) {
-        echo "<tr>" .
-        "<td>{$inhalt['Signatur']}</td>" .
-        "<td>{$inhalt['Titel']}</td>" . 
-        "<td>{$inhalt['Autor_Nr']}</td>" . 
-        "<td>{$inhalt['Kategorie']}</td>" .
-        "<td>{$inhalt['Verlag']}</td>".
-        "<td>{$inhalt['Anzahl']}</td>".
-        "<td></td>
-        </tr>";
+    foreach ($result as $row) {
+
+        var_dump($buch);
+        die();
+        $buch .= <<<BUCH
+        <tr>
+            <td>{$row['Signatur']}</td>
+            <td>{$row['Titel']}</td>
+            <td>{$row['name']} . {$row['vorname']}</td>
+            <td>{$row['Kategorie_Name']}</td>
+            <td>{$row['Verlag']}</td>
+            <td>{$row['ISBN']}</td>
+            <td><a href="index.php?buchupdate&id={$row['Signatur']}" class="btn btn-outline btn-sm">Edit</a></td>
+            <td><a href="index.php?delete_buch&id={$row['Signatur']}" class="btn btn-outline btn-sm">Delete</a></td>
+        </tr>
+        BUCH;
     }
 
     echo $buch;
 }
+
 
 
 function kategorie(){
