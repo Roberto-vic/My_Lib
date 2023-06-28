@@ -17,9 +17,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php  ?>
+                <?php buchListe(); ?>
 
-                <tr>
+                <!-- <tr>
                     <td>20</td>
                     <td>Mandarini</td>
                     <td>
@@ -32,7 +32,7 @@
                         <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Edit</a>
                         <a href="" class="btn btn-outline btn-sm"><i class="fa-regular fa-trash-can fa-xs" style="color: #e56815;"></i> Delete</a>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
 </div>

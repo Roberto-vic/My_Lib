@@ -79,8 +79,8 @@
             <!-- Main -->
 
             <?php //include(BACK_END . DS . 'prodeinfuegen.php'); ?>
-            <?php //include(BACK_END . DS . 'buecher.php');?>
-            <?php include(BACK_END . DS . 'kategorie.php');?>
+            <?php include(BACK_END . DS . 'buecher.php');?>
+            <?php //include(BACK_END . DS . 'kategorie.php');?>
             <?php //include(BACK_END . DS . 'kunden.php');?>
             <?php //include(BACK_END . DS . 'neuekunde.php');?>
             <?php //include(BACK_END . DS . 'kundeupdate.php');?>
