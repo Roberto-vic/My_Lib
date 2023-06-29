@@ -1,3 +1,5 @@
+<?php verlageAdd() ?>
+<?php verlageDelete() ?>
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Verlage</h3>
@@ -14,31 +16,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php  ?>
 
-                    <tr>
-                        <td>12</td>
-                        <td>Mondadori</td>
-                        <td>Berlin</td>
-                        <td>
-                            <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Edit</a>
-                            <a href="" class="btn btn-outline btn-sm"><i class="fa-regular fa-trash-can fa-xs" style="color: #e56815;"></i> Delete</a>
-                        </td>
-                    </tr>
+                    <?php verlage() ?>
+
                 </tbody>
             </table>
         </div>
         <div class="col-md-3 no-wrap">
             <h3>Neue Verlag einfügen</h3>
-            <div class="form-group">
-                <label for="verlag">Verlag</label>
-                <input type="text" name="verlag" id="" class="form-control mb-3">
-            </div>
-            <div class="form-group">
-                <label for="ort">Ort</label>
-                <input type="text" name="ort" id="" class="form-control mb-3">
-            </div>
-            <input type="submit" value="Add" class="btn btn-outline btn-sm mt-3">
+            <form action="index.php?verlag" method="post">
+                <div class="form-group">
+                    <label for="verlag">Verlag</label>
+                    <input type="text" name="verlag" id="" class="form-control mb-3">
+                </div>
+                <div class="form-group">
+                    <label for="ort">Ort</label>
+                    <input type="text" name="ort" id="" class="form-control mb-3">
+                </div>
+                <input type="submit" value="Add" name="Add" class="btn btn-outline btn-sm mt-3">
+            </form>
         </div>
 
     </div>

@@ -51,7 +51,7 @@
     <!-- /Top nav -->
 
     <!-- Sidebar -->
-    <div class="container-fluid sticky-top">
+    <div class="container-fluid">
         <div class="row">
             <div class="col side justify-content-center">
                 <ul class="nav flex-column ms-0">
@@ -68,7 +68,7 @@
                         <a class="nav-link" href="index.php?verlag">Verlag</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Auf reise</a>
+                        <a class="nav-link" href="index.php?aufreise">Auf reise</a>
                     </li>
                 </ul>
             </div>
@@ -77,17 +77,38 @@
             <!-- /Sidebar -->
 
             <!-- Main -->
-
-            <?php //include(BACK_END . DS . 'prodeinfuegen.php'); ?>
-            <?php include(BACK_END . DS . 'buecher.php');?>
-            <?php //include(BACK_END . DS . 'kategorie.php');?>
-            <?php //include(BACK_END . DS . 'kunden.php');?>
-            <?php //include(BACK_END . DS . 'neuekunde.php');?>
-            <?php //include(BACK_END . DS . 'kundeupdate.php');?>
-            <?php //include(BACK_END . DS . 'verlag.php');?>
-            <?php //include(BACK_END . DS . 'verlagupdate.php');?>
-            <?php //include(BACK_END . DS . 'aufreise.php');?>
-            <?php //include(BACK_END . DS . 'verleihen.php');?>
+            <?php
+            if(isset($_GET['buecher'])){
+                include(BACK_END . DS . 'buecher.php');
+            }
+            if(isset($_GET['kategorie'])){
+                include(BACK_END . DS . 'kategorie.php');
+            }
+            if(isset($_GET['verlag'])){
+                include(BACK_END . DS . 'verlag.php');
+            }
+            if(isset($_GET['kunden'])){
+                include(BACK_END . DS . 'kunden.php');
+            }
+            if(isset($_GET['neueKunde'])){
+                include(BACK_END . DS . 'neueKunde.php');
+            }
+            if(isset($_GET['verlagUpdate'])){
+                include(BACK_END . DS . 'verlagUpdate.php');
+            }
+            if(isset($_GET['aufreise'])){
+                include(BACK_END . DS . 'aufreise.php');
+            }
+            if(isset($_GET['kundeupdate'])){
+                include(BACK_END . DS . 'kundeupdate.php');
+            }
+            if(isset($_GET['prodeinfuegen'])){
+                include(BACK_END . DS . 'prodeinfuegen.php');
+            }
+            if(isset($_GET['verleihen'])){
+                include(BACK_END . DS . 'verleihen.php');
+            }
+            ?>
 
             <!-- /Main -->
 

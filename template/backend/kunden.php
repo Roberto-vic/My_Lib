@@ -36,7 +36,7 @@
 </div>
         <div class="col-md-2 no-wrap">
         <h3>Neuen Kunden einfügen</h3>
-        <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-plus fa-xs" style="color: #e56815;"></i> Add</a>
+        <a href="index.php?neueKunde" class="btn btn-outline btn-sm"><i class="fa-solid fa-plus fa-xs" style="color: #e56815;"></i> Add</a>
         </div>
         
     </div>

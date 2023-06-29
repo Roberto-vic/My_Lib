@@ -1,30 +1,35 @@
 <?php
 
-function query($sql){
+function query($sql)
+{
     global $dbh;
 
     return $dbh->query($sql);
 }
 
-function confirm($result){
+function confirm($result)
+{
     global $dbh;
 
-    if(!$result){
+    if (!$result) {
         die("Query failed" . $dbh->errorInfo());
     }
 }
 
-function escape_string($string){
+function fetch_array($result)
+{
+    return $result->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function escape_string($string)
+{
     global $dbh;
 
     return $dbh->quote($string);
 }
 
-function fetch_array($result){
-    return $result->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function last_id(){
+function last_id()
+{
     global $dbh;
 
     return $dbh->lastInsertId();
@@ -32,30 +37,29 @@ function last_id(){
 
 function buchListe()
 {
-    $sql = "SELECT b.Signatur, b.Titel, k.Kategorie_Name, b.Verlag, b.ISBN, a.name, a.vorname
-            FROM bücher b
-            INNER JOIN geschrieben g ON b.Signatur = g.Signatur
-            INNER JOIN kategorie k ON b.Kategorie = k.Kategorie_ID
-            INNER JOIN autoren a ON g.Autor_Nr = a.Autor_ID";
+    $sql = "SELECT Signatur_ID, Titel, Kategorie_Name, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname
+    FROM bücher
+    INNER JOIN geschrieben ON Signatur = Signatur_ID
+    INNER JOIN kategorien ON Kategorie = Kategorie_ID
+    INNER JOIN autoren ON Autor_ID = Autor_Nr
+    INNER JOIN verlage ON Verlag_ID = Verlag_Nr;";
     $result = query($sql);
     confirm($result);
 
     $buch = '';
 
     foreach ($result as $row) {
-
-        var_dump($buch);
-        die();
+        
         $buch .= <<<BUCH
         <tr>
-            <td>{$row['Signatur']}</td>
+            <td>{$row['Signatur_ID']}</td>
             <td>{$row['Titel']}</td>
-            <td>{$row['name']} . {$row['vorname']}</td>
+            <td>{$row['Autoren_Name']} . {$row['Autoren_Vorname']}</td>
             <td>{$row['Kategorie_Name']}</td>
-            <td>{$row['Verlag']}</td>
+            <td>{$row['Verlag_Name']}</td>
             <td>{$row['ISBN']}</td>
-            <td><a href="index.php?buchupdate&id={$row['Signatur']}" class="btn btn-outline btn-sm">Edit</a></td>
-            <td><a href="index.php?delete_buch&id={$row['Signatur']}" class="btn btn-outline btn-sm">Delete</a></td>
+            <td><a href="index.php?buchupdate&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm">Edit</a></td>
+            <td><a href="index.php?delete_buch&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm">Delete</a></td>
         </tr>
         BUCH;
     }
@@ -64,29 +68,147 @@ function buchListe()
 }
 
 
-
-function kategorie(){
-    $sql = "SELECT * FROM Kategorie";
+// Kategorie zeigen
+function kategorie()
+{
+    $sql = "SELECT * FROM Kategorien";
     $result = query($sql);
     confirm($result);
 
     $kategorien = '';
 
-   while($row = fetch_array($result)){
+    foreach ($result as $kategorie) {
 
-    var_dump($row);
-    die();
-
-    $kategorien .= <<<KATEGORIE
+        $kategorien .= <<<KATEGORIE
     <tr>
-        <td>{$row['Kategorie_ID']}</td>
-        <td>{$row['Kategorie_Name']}</td>
+        <td>{$kategorie['Kategorie_ID']}</td>
+        <td>{$kategorie['Kategorie_Name']}</td>
         <td>
-        <a href="" class="btn btn-outline btn-sm"><i class="fa-regular fa-trash-can fa-xs"  style="color: #e56815;"></i> Delete</a>
+        <form action="" method="post">
+        <input type="submit" value="Löschen" class="btn btn-outline btn-sm"> 
+        <input type='hidden' name='delete' value = {$kategorie['Kategorie_ID']}>
+        </form>
+        
         </td>
     </tr>
     KATEGORIE;
-   }
+    }
 
-   echo $kategorien;
+    echo $kategorien;
+}
+
+// Kategorie einfugen
+function addKategorie()
+{
+    if (isset($_POST['Add'])) {
+        $kategorie = escape_string($_POST['kategorie']);
+
+        $sql = "INSERT INTO kategorien (Kategorie_Name) VALUES ($kategorie)";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?kategorie");
+    }
+}
+
+// Kategorie löschen
+function deleteKat()
+{
+
+    // echo "OK";
+
+    if (isset($_POST['delete'])) {
+
+        $katID = $_POST['delete'];
+
+        $sql = "DELETE FROM kategorien WHERE Kategorie_ID = $katID";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?kategorie");
+    }
+}
+
+// Verlage zeigen
+
+function verlage()
+{
+    $sql = "SELECT * FROM verlage";
+    $result = query($sql);
+    confirm($result);
+
+    $verlageListe = '';
+    foreach ($result as $verlag) {
+
+        $verlageListe .= <<<VERLAG
+        <tr>
+                <td>{$verlag['Verlag_ID']}</td>
+                <td>{$verlag['Verlag_Name']}</td>
+                <td>{$verlag['Ort']}</td>
+            <td>
+            <form action="" method="post">
+            <input type="submit" value="Löschen" class="btn btn-outline btn-sm"> 
+            <input type='hidden' name='delete' value = {$verlag['Verlag_ID']}>
+            <a href='index.php?verlagUpdate' name="edit" class="btn btn-outline btn-sm">Edit</a> 
+            <input type='hidden' name='edit' value = {$verlag['Verlag_ID']}>
+            </form>
+            </td>
+        </tr>
+
+        VERLAG;
+    }
+
+    echo $verlageListe;
+}
+
+// Verlage einfugen
+function verlageAdd()
+{
+    if (isset($_POST['Add'])) {
+        $verlag = escape_string($_POST['verlag']);
+        $ort = escape_string($_POST['ort']);
+
+        $sql = "INSERT INTO verlage (Verlag_Name, Ort) VALUES ($verlag, $ort)";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?verlag");
+    }
+}
+
+// Verlage löschen
+
+function verlageDelete()
+{
+    if (isset($_POST['delete'])) {
+
+        $verlagID = $_POST['delete'];
+
+        $sql = "DELETE FROM verlage WHERE Verlag_ID = $verlagID";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?verlag");
+    }
+}
+
+// Velage updaten
+
+function verlageUpdate()
+{
+    // $sql = "UPDATE verlage SET Verlag_Name = VerlagName, Ort = ort WHERE Verlag_ID";
+    // $result = query($sql);
+    // confirm($result);
+
+    if(isset($_POST['Verlag_id'])){
+        $verlagID = $_POST['Verlag_id'];
+        $verlagName = $_POST['VerlagName'];
+        $ort = $_POST['ort'];
+
+        $sql = "UPDATE verlage SET Verlag_Name = $verlagName, Ort = $ort WHERE Verlag_ID = $verlagID";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?verlage");
+    }
 }
