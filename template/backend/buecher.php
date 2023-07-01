@@ -23,7 +23,7 @@
 </div>
         <div class="col-md-2 no-wrap">
         <h3>Neues Buch einfügen</h3>
-        <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-plus fa-xs" style="color: #e56815;"></i> Add</a>
+        <a href="index.php?prodEinfuegen" class="btn btn-outline btn-sm"><i class="fa-solid fa-plus fa-xs" style="color: #e56815;"></i> Add</a>
         </div>
         
     </div>

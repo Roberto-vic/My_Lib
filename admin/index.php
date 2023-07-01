@@ -59,6 +59,9 @@
                         <a class="nav-link active" href="index.php?buecher">Büchern</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="index.php?autoren">Autoren</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="index.php?kategorie">Kategorien</a>
                     </li>
                     <li class="nav-item">
@@ -78,35 +81,39 @@
 
             <!-- Main -->
             <?php
-            if(isset($_GET['buecher'])){
+            
+            if (isset($_GET['buecher'])) {
                 include(BACK_END . DS . 'buecher.php');
             }
-            if(isset($_GET['kategorie'])){
+            if (isset($_GET['kategorie'])) {
                 include(BACK_END . DS . 'kategorie.php');
             }
-            if(isset($_GET['verlag'])){
+            if (isset($_GET['verlag'])) {
                 include(BACK_END . DS . 'verlag.php');
             }
-            if(isset($_GET['kunden'])){
+            if (isset($_GET['kunden'])) {
                 include(BACK_END . DS . 'kunden.php');
             }
-            if(isset($_GET['neueKunde'])){
+            if (isset($_GET['neueKunde'])) {
                 include(BACK_END . DS . 'neueKunde.php');
             }
-            if(isset($_GET['verlagUpdate'])){
+            if (isset($_GET['verlagUpdate'])) {
                 include(BACK_END . DS . 'verlagUpdate.php');
             }
-            if(isset($_GET['aufreise'])){
+            if (isset($_GET['aufreise'])) {
                 include(BACK_END . DS . 'aufreise.php');
             }
-            if(isset($_GET['kundeupdate'])){
+            if (isset($_GET['kundeupdate'])) {
                 include(BACK_END . DS . 'kundeupdate.php');
             }
-            if(isset($_GET['prodeinfuegen'])){
-                include(BACK_END . DS . 'prodeinfuegen.php');
+            if (isset($_GET['prodEinfuegen'])) {
+                include(BACK_END . DS . 'prodEinfuegen.php');
             }
-            if(isset($_GET['verleihen'])){
+            if (isset($_GET['verleihen'])) {
                 include(BACK_END . DS . 'verleihen.php');
+            }
+            if (isset($_GET['autoren'])) {
+                include(BACK_END . DS . 'autoren.php');
             }
             ?>
 
@@ -137,6 +144,17 @@
             .catch(error => {
                 console.error(error);
             });
+
+        // function checkOption(select) {
+        //     var option = select.value;
+        //     if (option === 'neue') {
+        //         document.getElementById('neueAutor').style.display = 'block';
+        //         document.getElementById('neueAutor').style.display = 'block';
+        //     } else {
+        //         document.getElementById('neueAutor').style.display = 'none';
+        //         document.getElementById('neueAutor').style.display = 'none';
+        //     }
+        // }
     </script>
 
 </body>

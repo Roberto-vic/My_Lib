@@ -9,7 +9,7 @@ defined('FRONT_END') ? null : define('FRONT_END', __DIR__ . DS . 'template/front
 
 defined('BACK_END') ? null : define('BACK_END', __DIR__ . DS . 'template/backend');
 
-defined('IMG_UPLOAD') ? null : define('IMG_UPLOAD', __DIR__ . DS . 'assets/img_art');
+defined('IMG_UPLOADS') ? null : define('IMG_UPLOADS', __DIR__ . DS . 'assets/img_art');
 
 $dbh = new PDO("mysql:dbname=projekt_realitätspause;host=localhost", 'root', '');
 

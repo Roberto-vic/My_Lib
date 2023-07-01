@@ -1,8 +1,9 @@
+<?php neuesBuch() ?>
+
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center">
         <h3 class="page-header">Neues Buch hinzufügen</h3>
     </div>
-
     <form action="" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-8">
@@ -12,9 +13,13 @@
                 </div>
                 <div class="form-group">
                     <label for="autor">Autor</label>
-                    <input type="text" name="autor" class="form-control mb-3">
+                    <input type="text" id="neueAutor" name="autName" class="form-control mb-3" style="display: none;">
+                    <input type="text" id="neueAutor" name="autVorname" class="form-control mb-3" style="display: none;">
+                    <select name="autoren" class="form-control mb-3">
+                        <option value="">Autor wählen</option>
+                        <?php autoren() ?>
+                    </select>
                 </div>
-
                 <div class="form-group">
                     <label for="info">Beschreibung</label>
                     <textarea name="beschreibung" cols="30" rows="8" class="form-control" type="text" id="editor1"></textarea>
@@ -27,39 +32,36 @@
             <!--fine col-8-->
 
             <div class="col-md-4">
-
                 <div class="form-group">
                     <label for="isbn">ISBN-N.</label>
                     <input type="text" name="isbn" class="form-control mb-3">
                 </div>
                 <div class="form-group">
-                    <label for="verlag">Verlag</label>
-                    <input type="text" name="verlag" class="form-control mb-3">
+                    <select name="verlag" class="form-control mb-3">
+                        <option value="">Verlag wählen</option>
+                        <?php verlagen() ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="kategorie">Kategorie</label>
                     <select name="kategorie" class="form-control mb-3">
                         <option value="">Kategorie wählen</option>
-                        <?php //mostraCatAdmin();  
-                        ?>
+                        <?php kategorieList() ?>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="anzahl">Anzahl</label>
-                    <input type="number" name="quantita_pdt" class="form-control mb-3" min="0">
+                    <input type="number" name="anzahl" class="form-control mb-3" min="0">
                 </div>
-
                 <div class="form-group mt-3">
                     <label for="bilder">Bilder</label>
                     <input type="file" name="bilder">
                 </div>
-
                 <div class="form-group mt-3">
-                    <input type="submit" name="Einfügen" class="btn btn-outline" value="Einfügen">
+                    <input type="submit" name="einfuegen" class="btn btn-outline" value="Einfügen">
                 </div>
-
-            </div><!--fine col-4-->
+            </div>
+            <!--fine col-4-->
         </div>
     </form>
 </div>

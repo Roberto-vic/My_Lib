@@ -13,6 +13,7 @@
                         <th>Firma</th>
                         <th>Ort</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
