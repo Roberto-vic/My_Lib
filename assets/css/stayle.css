@@ -1,42 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700&display=swap");
 
-body{
-    font-family: 'Montserrat', sans-serif!important;
+body {
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .nav-link {
-    color: #0d3b66 !important;
+  color: #0d3b66 !important;
 }
 
 ul,
 li {
-    margin-right: 25px;
+  margin-right: 25px;
 }
 
 .header {
-    background-color: #F4D35E !important;
+  background-color: #f4d35e !important;
 }
 
 .btn {
-    border-color: #F95738 !important;
-    color: #F95738;
+  border-color: #f95738 !important;
+  color: #f95738;
 }
 
 hr {
-    background-color: #F95738;
-    border: none;
-    border-radius: 25%;
-    width: 100px !important;
-    height: 5px;
-    margin: 10px auto !important;
+  background-color: #f95738;
+  border: none;
+  border-radius: 25%;
+  width: 100px !important;
+  height: 5px;
+  margin: 10px auto !important;
 }
 
 .card img {
-    margin-top: 15px;
-    height: 20rem !important;
-    width: auto;
+  margin-top: 15px;
+  height: 20rem !important;
+  width: auto;
 }
 
-.login{
-    height: 70%;
+.login {
+  height: 70%;
 }

@@ -9,6 +9,6 @@
          <p class="mt-2">oder besuche uns !!!</p>
      </div>
      <div class="col-lg-4 text-center">
-         <img src="./assets/img/1.png" alt="">
+         <img src="./assets/img/realitätspause.png" alt="" style="max-width: 100%; margin: auto;">
      </div>
  </div>

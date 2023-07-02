@@ -194,14 +194,18 @@ function buchHomepage()
     $result = query($sql);
     confirm($result);
 
+    
     $buch = '';
+    $maxLenght = 400;
     foreach ($result as $row) {
+        $beschreibung = substr($row['Beschreibung'], 0, $maxLenght);
+        $beschreibung .= '...';
         $buch .= <<<BUCH
         <div class="card shadow me-1" style="width: 18rem;">
             <img src="./assets/img_art/{$row['Bilder']}" class="card-img-top mx-3" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{$row['Titel']}</h5>
-                    <p class="card-text">{$row['Beschreibung']}</p>
+                    <p class="card-text">{$beschreibung}</p>
                 </div>
         </div>
         BUCH;

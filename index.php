@@ -1,74 +1,73 @@
-<?php 
+<?php
 include("config.php");
 ?>
-    <!-- template -->
-    <div class="overflow-x-hidden">
-        <!-- Navigation -->
+<!-- template -->
+<div class="overflow-x-hidden">
+    <!-- Navigation -->
 
-        <?php
+    <?php
 
-        include(FRONT_END . DS . "nav.php");
+    include(FRONT_END . DS . "nav.php");
 
-        ?>
+    ?>
 
-        <!-- /Navigation -->
+    <!-- /Navigation -->
 
-        <!-- header -->
-        <div class="container-fluid header py-5 mb-5" id="home">
-            <?php
+    <!-- header -->
+    <?php
 
-            include(FRONT_END . DS . "head.php");
+    include(FRONT_END . DS . "head.php");
 
-            ?>
-        </div>
+    ?>
+</div>
 
-        <!-- /header -->
+<!-- /header -->
 
-        <!-- Neues -->
+<!-- Neues -->
 
-        <div class="container my-5 py-5" style="color: #0d3b66">
-            <?php
+<div class="container my-5 py-5" style="color: #0d3b66">
+    <?php
 
-            include(FRONT_END . DS . "neue.php");
+    include(FRONT_END . DS . "neue.php");
 
-            ?>
-        </div>
+    ?>
+</div>
 
 
-        <!-- /Neues -->
+<!-- /Neues -->
 
-        <!-- Öffnungszeit -->
+<!-- Öffnungszeit -->
 
-        <div class="container-fluid my-5 py-5" style="background-color: #0d3b66;">
-            <?php
+<div class="container-fluid my-5 py-5" style="background-color: #0d3b66;">
+    <?php
 
-            include(FRONT_END . DS . "offZeit.php");
+    include(FRONT_END . DS . "offZeit.php");
 
-            ?>
-        </div>
+    ?>
+</div>
 
-        <!-- /Öffnungszeit -->
+<!-- /Öffnungszeit -->
 
-        <!-- Kontakt -->
+<!-- Kontakt -->
 
-        <div class="container-fluid my-5 py-4">
-            <?php
+<div class="container-fluid my-5 py-4">
+    <?php
 
-            include(FRONT_END . DS . "kontakt.php");
+    include(FRONT_END . DS . "kontakt.php");
 
-            ?>
-        </div>
+    ?>
+</div>
 
-        <!-- /Kontakt -->
+<!-- /Kontakt -->
 
-        <!-- Footer -->
+<!-- Footer -->
 
-        <div class="container-fluid mt-5 py-5" style="background-color: #0d3b66;">
-            <?php
+<div class="container-fluid mt-5 py-5" style="background-color: #0d3b66;">
+    <?php
 
-            include(FRONT_END . DS . "footer.php");
+    include(FRONT_END . DS . "footer.php");
 
-            ?>
-        </div>
+    ?>
+</div>
 
-        <!-- /Footer -->
+<!-- /Footer -->
