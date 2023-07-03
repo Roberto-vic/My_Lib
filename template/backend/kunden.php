@@ -1,3 +1,6 @@
+<?php neueKunde() ?>
+<?php kundeLoschen() ?>
+
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Kunden</h3>
@@ -17,9 +20,9 @@
                 </tr>
             </thead>
             <tbody>
-                <?php  ?>
+                <?php kundenTabelle()  ?>
 
-                <tr>
+         <!--       <tr>
                     <td>1001</td>
                     <td>Max</td>
                     <td>Muster</td>
@@ -30,8 +33,8 @@
                         <a href="index.php?kundeUpdate&id=" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Edit</a>
                         <a href="index.php?kundeUpdate&id=" class="btn btn-outline btn-sm"><i class="fa-regular fa-trash-can fa-xs" style="color: #e56815;"></i> Delete</a>
                     </td>
-                </tr>
-            </tbody>
+ </tr>
+   -->         </tbody>
         </table>
 </div>
         <div class="col-md-2 no-wrap">

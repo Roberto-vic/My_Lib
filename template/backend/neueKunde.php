@@ -1,3 +1,5 @@
+<?php neueKunde() ?>
+
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center">
         <h3 class="page-header">Neuen Kunden hinzufügen</h3>

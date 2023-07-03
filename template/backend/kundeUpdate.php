@@ -1,6 +1,30 @@
+<?php
+
+if (isset($_GET['id'])) {
+
+    $kunden_id = $_GET['id'];
+
+    $sql = "SELECT * FROM kunden WHERE Kunden_ID = $kunden_id";
+    $result = query($sql);
+    confirm($result);
+
+
+    foreach ($result as $kunde) {
+        $name = $kunde['Name'];
+        $vorname = $kunde['Vorname'];
+        $strasse = $kunde['Strasse'];
+        $plz = $kunde['plz'];
+        $ort = $kunde['ort'];
+    }
+    
+    kundeUpdate();
+}
+
+?>
+
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center">
-        <h3 class="page-header">Neuen Kunden hinzufügen</h3>
+        <h3 class="page-header">Kunden Bearbeiten</h3>
     </div>
 
     <form action="" method="post" enctype="multipart/form-data">
@@ -8,7 +32,7 @@
             <div class="col-md-6 offset-2">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control mb-3">
+                    <input type="text" name="name"  class="form-control mb-3">
                 </div>
                 <div class="form-group">
                     <label for="autor">Vorname</label>
