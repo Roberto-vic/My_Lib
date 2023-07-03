@@ -187,6 +187,85 @@ function neuesBuch()
     }
 }
 
+// buch editieren 
+function buchUpdate()
+{
+
+    if (isset($_POST['edit'])) {
+
+        $titel = $_POST['titel'];
+        $autor = $_POST['autor'];
+        $beschreibung = $_POST['beschreibung'];
+        $isbn = $_POST['isbn'];
+        $kategorie = $_POST['kategorie'];
+        $verlag = $_POST['verlag'];
+        $anzahl = $_POST['anzahl'];
+        $bild = $_FILES['bilder']['name'];
+        $tmp_bild = $_FILES['bilder']['tmp_name'];
+
+        if (empty($bild)) {
+            $sql = "SELECT Bilder FROM bücher WHERE Signatur_ID = {$_GET['id']};";
+            $result = query($sql);
+            confirm($result);
+
+            $bilder = $result;
+
+            foreach ($bilder as $bild) {
+                $bild = $bild['Bilder'];
+            }
+        }
+        move_uploaded_file($tmp_bild, IMG_UPLOADS . DS . $bild);
+
+        if(empty($verlag)){
+            $sql = "SELECT Verlag_Nr FROM bücher WHERE Signatur_ID = {$_GET['id']};";
+            $result = query($sql);
+            confirm($result);
+
+            $verlage = $result;
+
+            foreach ($verlage as $verlag) {
+                $verlag = $verlag['Verlag_Nr'];
+            }
+        }
+
+        if(empty($kategorie)){
+            $sql = "SELECT Kategorie FROM bücher WHERE Signatur_ID = {$_GET['id']};";
+            $result = query($sql);
+            confirm($result);
+
+            $kategorien = $result;
+
+            foreach ($kategorien as $kategorie) {
+                $kategorie = $kategorie['Kategorie'];
+            }
+        }
+
+        $sql = "UPDATE bücher 
+        SET Titel = '$titel', Beschreibung = '$beschreibung', Anzahl = '$anzahl', ISBN = '$isbn', 
+            Bilder = '$bild', Kategorie = (SELECT Kategorie_ID FROM kategorien WHERE Kategorie_ID = '$kategorie'), 
+            Verlag_Nr = (SELECT Verlag_ID FROM verlage WHERE Verlag_ID = '$verlag')
+        WHERE Signatur_ID = {$_GET['id']};";
+
+        $result = query($sql);
+        confirm($result);
+
+        // $signatur_id = last_id($result);
+
+        // die();
+
+        $sql = "UPDATE geschrieben 
+        SET Autor_Nr = (SELECT Autor_ID FROM autoren WHERE Autor_ID = '$autor')
+        WHERE Signatur = {$_GET['id']};";
+
+        $result = query($sql);
+        confirm($result);
+
+
+
+        header("Location: index.php?buecher");
+    }
+}
+
 // lätzte 4 Bücher in Homepage zeigen
 function buchHomepage()
 {
@@ -416,7 +495,7 @@ function kundenTabelle()
     $result = query($sql);
     confirm($result);
 
-    $autoren = '';
+    $kunden = '';
 
     foreach ($result as $row) {
         $kunden .= <<<KUNDEN

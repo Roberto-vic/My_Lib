@@ -12,9 +12,9 @@ if (isset($_GET['id'])) {
     foreach ($result as $kunde) {
         $name = $kunde['Name'];
         $vorname = $kunde['Vorname'];
-        $strasse = $kunde['Strasse'];
-        $plz = $kunde['plz'];
-        $ort = $kunde['ort'];
+        $strasse = $kunde['Straße'];
+        $plz = $kunde['PLZ'];
+        $ort = $kunde['Ort'];
     }
     
     kundeUpdate();
