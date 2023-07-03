@@ -147,7 +147,7 @@ function buchListe()
             <td>{$row['Kategorie_Name']}</td>
             <td>{$row['Verlag_Name']}</td>
             <td>{$row['ISBN']}</td>
-            <td><a href="index.php?buchupdate&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm">Edit</a></td>
+            <td><a href="index.php?buchUpdate&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm" role="button">Edit</a></td>
             <td><a href="index.php?delete_buch&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm">Delete</a></td>
         </tr>
         BUCH;
@@ -187,6 +187,44 @@ function neuesBuch()
     }
 }
 
+// Buch editieren
+function buchUpdate()
+{
+    if (isset($_POST['edit'])) {
+        $titel = $_POST['titel'];
+        $autor = $_POST['autor'];
+        $beschreibung = $_POST['beschreibung'];
+        $kategorie = $_POST['kategorie'];
+        $verlag = $_POST['verlag'];
+        $isbn = $_POST['isbn'];
+        $anzahl = $_POST['anzahl'];
+        $bild = $_FILES['bilder']['name'];
+        $tmp_bild = $_FILES['bilder']['tmp_name'];
+
+        if (empty($bild)) {
+            $sql = "SELECT Bilder FROM bücher WHERE Signatur_ID = {$_GET['id']};";
+            $result = query($sql);
+            confirm($result);
+            $bilder = $result;
+            foreach ($bilder as $bild) {
+                $bild = $bild['Bilder'];
+            }
+        }
+        move_uploaded_file($tmp_bild, IMG_UPLOADS . DS . $bild);
+        // $buch_id = $_GET['id'];
+        $autor = $_GET['Autor_ID'];
+
+        $sql = "UPDATE bücher SET Titel = '$titel', Beschreibung = '$beschreibung', Anzahl = '$anzahl', ISBN = '$isbn',Kategorie = '$kategorie', Bilder = '$bild', Verlag_Nr = '$verlag' WHERE Signatur_ID = {$_GET['id']};
+        UPDATE geschrieben SET Autor_Nr = (SELECT Autor_ID from autoren WHERE Autoren_Name && . ' ' . Autoren_Vorname = $autor) WHERE Signatur = {$_GET['id']};";
+        $result = query($sql);
+        confirm($result);
+        
+        
+        header("Location: index.php?buecher");
+    }
+
+}
+
 // lätzte 4 Bücher in Homepage zeigen
 function buchHomepage()
 {
@@ -194,7 +232,7 @@ function buchHomepage()
     $result = query($sql);
     confirm($result);
 
-    
+
     $buch = '';
     $maxLenght = 400;
     foreach ($result as $row) {

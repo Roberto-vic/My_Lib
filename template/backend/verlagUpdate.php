@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
         $verlag_name = $verlag['Verlag_Name'];
         $ort = $verlag['Ort'];
     }
-    
+     
     verlageUpdate();
 }
 ?>
