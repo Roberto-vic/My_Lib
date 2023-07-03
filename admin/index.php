@@ -103,8 +103,8 @@
             if (isset($_GET['aufreise'])) {
                 include(BACK_END . DS . 'aufreise.php');
             }
-            if (isset($_GET['kundeupdate'])) {
-                include(BACK_END . DS . 'kundeupdate.php');
+            if (isset($_GET['kundeUpdate'])) {
+                include(BACK_END . DS . 'kundeUpdate.php');
             }
             if (isset($_GET['prodEinfuegen'])) {
                 include(BACK_END . DS . 'prodEinfuegen.php');

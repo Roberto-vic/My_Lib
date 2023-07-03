@@ -105,7 +105,7 @@ function autorLoschen()
     }
 }
 
-// Neue Autor 
+// Neuer Autor 
 function neueAutor()
 {
     if (isset($_POST['Add'])) {
@@ -116,7 +116,7 @@ function neueAutor()
         $result = query($sql);
         confirm($result);
 
-        // set_message("Neue Autor wurde eingefügt");
+        // set_message("Neuer Autor wurde eingefügt");
         header("Location: index.php?autoren");
     }
 }
@@ -187,7 +187,7 @@ function neuesBuch()
     }
 }
 
-// lätzte 4 Bücher in Homepage zeigen
+// letzten 4 Bücher in Homepage zeigen
 function buchHomepage()
 {
     $sql = "SELECT Bilder, Titel, Beschreibung FROM bücher ORDER BY Signatur_ID DESC LIMIT 4;";
@@ -387,5 +387,108 @@ function verlageUpdate()
         confirm($result);
 
         header("Location: index.php?verlag");
+    }
+}
+
+// Kunden Liste
+function kunden()
+{
+    $sql = "SELECT Kunden_ID, Vorname, Name, PLZ, Straße, Ort FROM kunden";
+    $result = query($sql);
+    confirm($result);
+
+    $kunden = '';
+
+    foreach ($result as $row) {
+        $kunden .= <<<KUNDEN
+        <option value="{$row['Kunden_ID']}">{$row['Vorname']} {$row['Name']} {$row['PLZ']} {$row['Straße']} {$row['Ort']} </option>
+        KUNDEN;
+    }
+
+    echo $kunden;
+}
+
+
+// Kunden Tabelle
+function kundenTabelle()
+{
+    $sql = "SELECT Kunden_ID, Vorname, Name, PLZ, Straße, Ort FROM kunden";
+    $result = query($sql);
+    confirm($result);
+
+    $autoren = '';
+
+    foreach ($result as $row) {
+        $kunden .= <<<KUNDEN
+        <tr>
+            <td>{$row['Kunden_ID']}</td>
+            <td>{$row['Vorname']}</td>
+            <td>{$row['Name']}</td>
+            <td>{$row['Straße']}</td>
+            <td>{$row['PLZ']}</td>
+            <td>{$row['Ort']}</td>
+            <td>
+            <form method="post" action="">
+            <input type="submit" value="Löschen" class="btn btn-outline btn-sm">
+            <input type='hidden' name='delete' value={$row['Kunden_ID']}>
+            <a href="index.php?kundeUpdate&id={$row['Kunden_ID']}" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Edit</a> 
+            
+            </form>
+            </td>
+        </tr>
+        KUNDEN;
+    }
+
+    echo $kunden;
+}
+
+// Kunde löschen
+function kundeLoschen()
+{
+    if (isset($_POST['delete'])) {
+        $kunId = $_POST['delete'];
+        $sql = "DELETE FROM kunden WHERE Kunden_ID = $kunId";
+        $result = query($sql);
+        confirm($result);
+
+        // set_message("Kunde wurde gelöscht");
+        header("Location: index.php?kunden");
+    }
+}
+
+// Update Kunde
+function kundeUpdate()
+{
+    if (isset($_POST['update'])) {
+        $vorname = $_POST['vorname'];
+        $name = $_POST['name'];
+        $plz = $_POST['plz'];
+        $strasse = $_POST['strasse'];
+        $ort = $_POST['ort'];
+
+        $sql = "UPDATE kunden SET vorname = '$vorname', name = '$name', plz = '$plz', strasse = '$strasse', ort = '$ort' WHERE Kunden_ID = {$_GET['id']}";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?kunden");
+    }
+}
+
+// Neuer Kunde 
+function neueKunde()
+{
+    if (isset($_POST['Einfügen'])) {
+        $vorname = $_POST['vorname'];
+        $name = $_POST['name'];
+        $plz = $_POST['plz'];
+        $strasse = $_POST['strasse'];
+        $ort = $_POST['ort'];
+
+        $sql = "INSERT INTO kunden (Name, Vorname, Straße, PLZ, Ort) VALUES ('$name', '$vorname', '$strasse', '$plz', '$ort')";
+        $result = query($sql);
+        confirm($result);
+
+        // set_message("Neue Kunde wurde eingefügt");
+        header("Location: index.php?kunden");
     }
 }
