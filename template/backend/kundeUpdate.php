@@ -32,26 +32,26 @@ if (isset($_GET['id'])) {
             <div class="col-md-6 offset-2">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name"  class="form-control mb-3">
+                    <input type="text" name="name"  class="form-control mb-3" value='<?php echo $name ?>'>
                 </div>
                 <div class="form-group">
                     <label for="autor">Vorname</label>
-                    <input type="text" name="vorname" class="form-control mb-3">
+                    <input type="text" name="vorname" class="form-control mb-3" value='<?php echo $vorname ?>''>
                 </div>
                 <div class="form-group">
                     <label for="strasse">Straße/N.</label>
-                    <input type="text" name="strasse" class="form-control mb-3">
+                    <input type="text" name="strasse" class="form-control mb-3" value='<?php echo $strasse ?>''>
                 </div>
                 <div class="form-group">
                     <label for="plz">PLZ</label>
-                    <input type="text" name="plz" class="form-control mb-3">
+                    <input type="text" name="plz" class="form-control mb-3" value='<?php echo $plz ?>'>
                 </div>
                 <div class="form-group">
                     <label for="ort">Ort</label>
-                    <input type="text" name="ort" class="form-control mb-3">
+                    <input type="text" name="ort" class="form-control mb-3" value='<?php echo $ort ?>'>
                 </div>
                 <div class="form-group mt-3">
-                    <input type="submit" name="update" class="btn btn-outline" value="Speicher">
+                    <input type="submit" name="update" class="btn btn-outline" value="Speichern">
                 </div>
             </div>
     </form>

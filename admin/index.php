@@ -53,7 +53,7 @@
     <!-- Sidebar -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col side justify-content-center sticky-top">
+            <div class="col side justify-content-center">
                 <ul class="nav flex-column ms-0">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?buecher">Büchern</a>
@@ -117,9 +117,6 @@
             if (isset($_GET['autoren'])) {
                 include(BACK_END . DS . 'autoren.php');
             }
-            if(isset($_GET['buchUpdate'])){
-                include(BACK_END . DS . 'buchUpdate.php');
-            }
             ?>
 
             <!-- /Main -->
@@ -129,7 +126,7 @@
 
     <!-- Footer -->
 
-    <div class="container-fluid mt-5 py-5 sticky-bottom" style="background-color: #0d3b66; height: 60px;">
+    <div class="container-fluid mt-5 py-5 fixed-bottom" style="background-color: #0d3b66; height: 60px;">
         <div class="row">
             <div class="col-lg-4 offset-lg-4" style="color: #F4D35E;">
                 &copy; Copyright Realitätspause <?php echo date('Y'); ?> - All Rights Reserved
