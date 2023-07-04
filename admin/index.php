@@ -39,7 +39,7 @@
                         <span class="visually-hidden">Toggle Dropstart</span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                     <button type="button" class="btn">
                         Hallo, Admin
@@ -81,9 +81,11 @@
 
             <!-- Main -->
             <?php
-            
+            // if($_SERVER['REQUEST_URI'] == "Projekt/My_Lib/admin/" || $_SERVER['REQUEST_URI'] == "Projekt/My_Lib/admin/index.php"){
+            // }
             if (isset($_GET['buecher'])) {
                 include(BACK_END . DS . 'buecher.php');
+                
             }
             if (isset($_GET['kategorie'])) {
                 include(BACK_END . DS . 'kategorie.php');

@@ -148,7 +148,12 @@ function buchListe()
             <td>{$row['Verlag_Name']}</td>
             <td>{$row['ISBN']}</td>
             <td><a href="index.php?buchUpdate&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm" role="button">Edit</a></td>
-            <td><a href="index.php?delete_buch&id={$row['Signatur_ID']}" class="btn btn-outline btn-sm">Delete</a></td>
+            <td>
+            <form action="" method="post">
+            <input type="submit" value="Löschen" class="btn btn-outline btn-sm"> 
+            <input type='hidden' name='delete' value = {$row['Signatur_ID']}>
+            </form>
+            </td>
         </tr>
         BUCH;
     }
@@ -216,7 +221,7 @@ function buchUpdate()
         }
         move_uploaded_file($tmp_bild, IMG_UPLOADS . DS . $bild);
 
-        if(empty($verlag)){
+        if (empty($verlag)) {
             $sql = "SELECT Verlag_Nr FROM bücher WHERE Signatur_ID = {$_GET['id']};";
             $result = query($sql);
             confirm($result);
@@ -228,7 +233,7 @@ function buchUpdate()
             }
         }
 
-        if(empty($kategorie)){
+        if (empty($kategorie)) {
             $sql = "SELECT Kategorie FROM bücher WHERE Signatur_ID = {$_GET['id']};";
             $result = query($sql);
             confirm($result);
@@ -237,6 +242,18 @@ function buchUpdate()
 
             foreach ($kategorien as $kategorie) {
                 $kategorie = $kategorie['Kategorie'];
+            }
+        }
+
+        if (empty($autor)) {
+            $sql = "SELECT Autor_Nr FROM geschrieben WHERE Signatur = {$_GET['id']};";
+            $result = query($sql);
+            confirm($result);
+
+            $autoren = $result;
+
+            foreach ($autoren as $autor) {
+                $autor = $autor['Autor_Nr'];
             }
         }
 
@@ -249,10 +266,6 @@ function buchUpdate()
         $result = query($sql);
         confirm($result);
 
-        // $signatur_id = last_id($result);
-
-        // die();
-
         $sql = "UPDATE geschrieben 
         SET Autor_Nr = (SELECT Autor_ID FROM autoren WHERE Autor_ID = '$autor')
         WHERE Signatur = {$_GET['id']};";
@@ -260,7 +273,18 @@ function buchUpdate()
         $result = query($sql);
         confirm($result);
 
+        header("Location: index.php?buecher");
+    }
+}
 
+// Buch löschen
+function buchDelete()
+{
+    if (isset($_POST['delete'])) {
+
+        $sql = "DELETE FROM bücher WHERE Signatur_ID = {$_POST['delete']};";
+        $result = query($sql);
+        confirm($result);
 
         header("Location: index.php?buecher");
     }
@@ -571,3 +595,5 @@ function neueKunde()
         header("Location: index.php?kunden");
     }
 }
+
+// Login 

@@ -1,3 +1,5 @@
+<?php buchDelete() ?> 
+
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Verfügbare Werke</h3>
@@ -13,6 +15,7 @@
                     <th>Kategorie</th>
                     <th>Verlag</th>
                     <th>ISBN</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>  

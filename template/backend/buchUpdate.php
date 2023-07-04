@@ -36,8 +36,6 @@ if (isset($_GET['id'])) {
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center mb-5">
         <h3 class="page-header">Buch verarbeiten</h3>
-        <span>Mit * pflicht</span>
-        <?php //print_r($signatur_id) ?>
     </div>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="row">
@@ -72,14 +70,14 @@ if (isset($_GET['id'])) {
                     <input type="text" name="isbn" class="form-control mb-3" value='<?php echo $isbn ?>'>
                 </div>
                 <div class="form-group">
-                    <label for="verlag">Verlag*</label>
+                    <label for="verlag">Verlag</label>
                     <select name="verlag" class="form-control mb-3">
                         <option value=''><?php echo $verlag ?></option>
                         <?php verlagen() ?>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="kategorie">Kategorie*</label>
+                    <label for="kategorie">Kategorie</label>
                     <select name="kategorie" class="form-control mb-3">
                         <option value=''><?php echo $kategorie ?></option>
                         <?php kategorieList() ?>
