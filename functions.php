@@ -545,7 +545,7 @@ function kundeUpdate()
         $strasse = $_POST['strasse'];
         $ort = $_POST['ort'];
 
-        $sql = "UPDATE kunden SET vorname = '$vorname', name = '$name', plz = '$plz', strasse = '$strasse', ort = '$ort' WHERE Kunden_ID = {$_GET['id']}";
+        $sql = "UPDATE kunden SET Vorname = '$vorname', Name = '$name', PLZ = '$plz', Straße = '$strasse', Ort = '$ort' WHERE Kunden_ID = {$_GET['id']}";
         $result = query($sql);
         confirm($result);
 
@@ -571,3 +571,5 @@ function neueKunde()
         header("Location: index.php?kunden");
     }
 }
+
+// Such Funktion in Arbeit.
