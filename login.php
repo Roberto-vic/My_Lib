@@ -1,6 +1,4 @@
-<?php
-include("config.php");
-?>
+<?php require_once("config.php"); ?>
 
 <!-- template -->
 <div class="overflow-x-hidden">
@@ -18,14 +16,14 @@ include("config.php");
             <h2 class="ms-3 mb-5">Login</h2>
             <div class="card shadow p-3 rounded top-50">
                 <div class="card-body">
-                    <?php //login() ?>
                     <form action="" method="post">
+                        <?php login() ?>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
                             <input type="text" class="form-control" name="username">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Passwort</span>
+                            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
                             <input type="password" class="form-control" name="password">
                         </div>
                         <div class="input-group mb-3">

@@ -117,6 +117,9 @@
             if (isset($_GET['autoren'])) {
                 include(BACK_END . DS . 'autoren.php');
             }
+            if(isset($_GET['buchUpdate'])){
+                include(BACK_END . DS . 'buchUpdate.php');
+            }
             ?>
 
             <!-- /Main -->

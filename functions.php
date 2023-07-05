@@ -597,4 +597,30 @@ function neueKunde()
 }
 
 // Login 
+function login()
+{
+    if (isset($_POST['Login'])) {
+        $username = isset($_POST['username']) ? $_POST['username'] : '';
+        $password = isset($_POST['password']) ? $_POST['password'] : '';
+
+        $sql = "SELECT * FROM beschäftigte WHERE Username = '$username' AND Passwort = '$password' LIMIT 1;";
+        $result = query($sql);
+        confirm($result);
+
+        if ($result) {
+
+            session_start();
+            $_SESSION['Username'] = $username;
+            $_SESSION['Role'] = 'Admin';
+            header("Location: index.php?buecher");
+            var_dump($result);
+            exit;
+        } else {
+            set_message("Username oder Password ist falsch");
+            header("Location: login.php");
+            var_dump($result);
+            exit;
+        }
+    }
+}
 // Such Funktion in Arbeit.
