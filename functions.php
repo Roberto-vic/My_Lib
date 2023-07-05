@@ -597,6 +597,7 @@ function neueKunde()
 }
 
 // Login 
+<<<<<<< HEAD
 function login()
 {
     if (isset($_POST['Login'])) {
@@ -623,4 +624,8 @@ function login()
         }
     }
 }
+=======
+
+
+>>>>>>> 05a25eeb68cdfcb2f29416dece199da2c7bdc168
 // Such Funktion in Arbeit.
