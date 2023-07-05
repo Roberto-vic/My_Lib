@@ -129,7 +129,7 @@
 
     <!-- Footer -->
 
-    <div class="container-fluid mt-5 py-5 fixed-bottom" style="background-color: #0d3b66; height: 60px;">
+    <div class="container-fluid mt-5 py-5" style="background-color: #0d3b66; height: 60px;">
         <div class="row">
             <div class="col-lg-4 offset-lg-4" style="color: #F4D35E;">
                 &copy; Copyright Realitätspause <?php echo date('Y'); ?> - All Rights Reserved

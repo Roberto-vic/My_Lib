@@ -38,8 +38,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#kontakt">Kontakt</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                    <li class="nav-item">  
+                        <a class="nav-link" href="login.php">Login</a>                      
+                        <?php
+                        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)   
+                        echo "<a href='admin/index.php' class='nav-link'>Admin</a>"
+                        ?>
                     </li>
                 </ul>
             </div>

@@ -24,4 +24,4 @@ try{
 }
 
 
-require_once('functions.php');
+require('functions.php');
