@@ -1,4 +1,4 @@
- <div class="row header">
+ <div class="row header mt-5 py-5" id="home">
      <div class="col-lg-4 offset-lg-2" style="color: #0d3b66">
          <h2 class="mt-5 pt-3">Willkommen bei der Realitätspause</h2>
          <p class="mt-5">
