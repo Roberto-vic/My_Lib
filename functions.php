@@ -596,3 +596,58 @@ function neueKunde()
     }
 }
 // Such Funktion in Arbeit.
+
+function searchBooks($search) {
+    
+    //if (isset($_POST['submit'])) {
+        //$search = $_POST['search'];
+        echo "OK2";
+    var_dump($search);    
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+
+    $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name 
+            FROM bücher 
+            INNER JOIN geschrieben ON Signatur = Signatur_ID 
+            INNER JOIN verlage ON Verlag_Nr = Verlag_ID 
+            INNER JOIN kategorien ON Kategorie = Kategorie_ID 
+            INNER JOIN autoren ON Autor_ID = Autor_Nr
+            WHERE Titel LIKE '%$search%'
+            GROUP BY Signatur_ID
+            ORDER BY Signatur_ID ASC;";
+
+    try {
+        $dbh = new PDO("mysql:dbname=Projekt_Realitätspause;host=localhost", "root", "");
+        $rueckgabe = $dbh->query($sql);
+        $ergebnis = $rueckgabe->fetchAll(PDO::FETCH_ASSOC);
+
+        if (!$ergebnis) {
+            echo "Kein Ergebnis gefunden.";
+        } else {
+            foreach ($ergebnis as $inhalt) {
+                $buch .= <<<BUCH
+                <tr>
+                    <td>{$inhalt['Signatur_ID']}</td>
+                    <td>{$inhalt['Titel']}</td>
+                    <td>{$inhalt['Autoren_Vorname']} {$inhalt['Autoren_Name']}</td>
+                    <td>{$inhalt['Kategorie_Name']}</td>
+                    <td>{$inhalt['Verlag_Name']}</td>
+                    <td>{$inhalt['ISBN']}</td>
+                    <td><a href="index.php?buchUpdate&id={$inhalt['Signatur_ID']}" class="btn btn-outline btn-sm" role="button">Edit</a></td>
+                    <td>
+                    <form action="" method="post">
+                    <input type="submit" value="Löschen" class="btn btn-outline btn-sm"> 
+                    <input type='hidden' name='delete' value = {$inhalt['Signatur_ID']}>
+                    </form>
+                    </td>
+                </tr>
+                BUCH;
+            }
+        
+            echo $buch;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}

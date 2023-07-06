@@ -30,9 +30,9 @@
         <div class="container-fluid">
             <nav class="navbar fixed-top">
                 <a class="navbar-brand ms-4" href="../index.php"><i class="fa-solid fa-book-open-reader" style="color: #e56815;"> RP Dashboard</i></a>
-                <form class="d-flex ms-auto w-50" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline" type="submit">Suchen</button>
+                <form action="suche.php" method="get" class="d-flex ms-auto w-50" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Titel Suchen" aria-label="search" name="search">
+                    <button class="btn btn-outline" name="submit" type="submit">Suchen</button>
                 </form>
                 <div class="btn-group dropstart ms-auto">
                     <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -84,8 +84,7 @@
             // if($_SERVER['REQUEST_URI'] == "Projekt/My_Lib/admin/" || $_SERVER['REQUEST_URI'] == "Projekt/My_Lib/admin/index.php"){
             // }
             if (isset($_GET['buecher'])) {
-                include(BACK_END . DS . 'buecher.php');
-                
+                include(BACK_END . DS . 'buecher.php');    
             }
             if (isset($_GET['kategorie'])) {
                 include(BACK_END . DS . 'kategorie.php');

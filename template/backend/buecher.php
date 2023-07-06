@@ -1,4 +1,5 @@
-<?php buchDelete() ?> 
+<?php buchDelete() ?>
+
 
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center mb-3">
