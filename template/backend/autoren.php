@@ -23,7 +23,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-3 no-wrap">
+        <div class="col-md-2 no-wrap">
             <h3>Neue Autor einfügen</h3>
             <form action="index.php?autoren" method="post">
                 <label for="kategorie">Autor Vorname</label>

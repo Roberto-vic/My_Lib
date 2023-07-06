@@ -1,6 +1,6 @@
 <?php require_once("config.php"); ?>
 <?php
-
+session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: admin/index.php");
@@ -58,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: admin/index.php");
+                            header("location: admin/index.php?buecher");
                         } else if ($username == $row['Username'] && $password == $row['Passwort']) {
-                            header("location: admin/index.php");
+                            header("location: admin/index.php?buecher");
                         } else {
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";

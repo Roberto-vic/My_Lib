@@ -42,7 +42,7 @@
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                     <button type="button" class="btn">
-                        Hallo, Admin
+                        Hallo, <?php echo @$_SESSION["username"] ?>
                     </button>
                 </div>
             </nav>
@@ -51,9 +51,9 @@
     <!-- /Top nav -->
 
     <!-- Sidebar -->
-    <div class="container-fluid">
+    <div class="container-fluid" style="overflow: scroll; margin-bottom: auto;">
         <div class="row">
-            <div class="col side justify-content-center">
+            <div class="col side justify-content-center" style="position: fixed; z-index:0; top:0; bottom: 0; float:left;">
                 <ul class="nav flex-column ms-0">
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?buecher">Büchern</a>
@@ -85,7 +85,6 @@
             // }
             if (isset($_GET['buecher'])) {
                 include(BACK_END . DS . 'buecher.php');
-                
             }
             if (isset($_GET['kategorie'])) {
                 include(BACK_END . DS . 'kategorie.php');
@@ -117,7 +116,7 @@
             if (isset($_GET['autoren'])) {
                 include(BACK_END . DS . 'autoren.php');
             }
-            if(isset($_GET['buchUpdate'])){
+            if (isset($_GET['buchUpdate'])) {
                 include(BACK_END . DS . 'buchUpdate.php');
             }
             ?>
@@ -129,7 +128,7 @@
 
     <!-- Footer -->
 
-    <div class="container-fluid mt-5 py-5" style="background-color: #0d3b66; height: 60px;">
+    <div class="container-fluid mt-5 py-5" style="background-color: #0d3b66; height: 50px; z-index: 4; position: static; bottom: 0;">
         <div class="row">
             <div class="col-lg-4 offset-lg-4" style="color: #F4D35E;">
                 &copy; Copyright Realitätspause <?php echo date('Y'); ?> - All Rights Reserved

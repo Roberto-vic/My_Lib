@@ -1,8 +1,8 @@
-<div class="col ms-auto mt-5">
+<div class="col-11 ms-auto mt-5 mb-auto">
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Verleih Liste</h3>
     </div>
-    <div class="row">
+    <div class="row ms-5">
         <div class="col-md-9">
             <table class="table table-bordered">
                 <thead>
@@ -12,22 +12,12 @@
                         <th>Vorname</th>
                         <th>Titel</th>
                         <th>Entleihdatum</th>
+                        <th>Ruckgabedatum</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php  ?>
-
-                    <tr>
-                        <td>1001</td>
-                        <td>Muster</td>
-                        <td>Max</td>
-                        <td>Herr der Ringe</td>
-                        <td>12/06/2023</td>
-                        <td>
-                            <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Zurück</a>
-                        </td>
-                    </tr>
+                    <?php aufreiseTabelle() ?>
                 </tbody>
             </table>
         </div>

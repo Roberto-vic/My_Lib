@@ -33,13 +33,13 @@ if (isset($_GET['id'])) {
 
 ?>
 
-<div class="col ms-auto mt-5">
+<div class="col-11 ms-auto mt-5 mb-auto">
     <div class="mt-5 pt-3 text-center mb-5">
         <h3 class="page-header">Buch verarbeiten</h3>
     </div>
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-8">
+    <form action="" method="post" enctype="multipart/form-data" class="me-auto">
+        <div class="row ms-5">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="titel">Titel </label>
                     <input type="text" name="titel" class="form-control mb-3" value='<?php echo $titel ?>'>
@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
 
             <!--fine col-8-->
 
-            <div class="col-md-4">
+            <div class="col-md-5">
 
                 <div class="form-group">
                     <label for="isbn">ISBN-N.</label>

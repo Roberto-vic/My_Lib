@@ -596,3 +596,38 @@ function neueKunde()
     }
 }
 // Such Funktion in Arbeit.
+
+
+// aufreise Tabelle 
+function aufreiseTabelle(){
+    $sql = "SELECT * FROM ausleihen 
+            INNER JOIN kunden ON Kunden_Nr = Kunden_ID
+            INNER JOIN bücher ON Signatur_Nr = Signatur_ID;";
+    $result = query($sql);
+    confirm($result);
+
+    if(isset($_POST['rueckgabe'])){
+        $sql = "INSERT INTO ausleihen VALUE ";
+    }
+
+    $liste = '';
+
+    foreach($result as $row){
+        $liste .= <<<LIST
+            <tr>
+                <td>{$row['Kunden_Nr']}</td>
+                <td>{$row['Name']}</td>
+                <td>{$row['Vorname']}</td>
+                <td>{$row['Titel']}</td>
+                <td>{$row['Ausleih_Datum']}</td>
+                <td>{$row['Rückgabe_Datum']}</td>
+                <td>
+                <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Zurück</a>
+                <input type="hidden" name="rueckgabe" value="{$row['Kunden_Nr']}">
+                </td>
+            </tr>
+        LIST;
+    }
+
+    echo $liste;
+}
