@@ -56,7 +56,7 @@
             <div class="col side justify-content-center" style="position: fixed; z-index:0; top:0; bottom: 0; float:left;">
                 <ul class="nav flex-column ms-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?buecher">Büchern</a>
+                        <a class="nav-link active" href="index.php?buecher">Bücher</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?autoren">Autoren</a>

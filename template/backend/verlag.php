@@ -24,7 +24,7 @@
             </table>
         </div>
         <div class="col-md-3 no-wrap">
-            <h3>Neue Verlag einfügen</h3>
+            <h3>Verlag hinzufügen</h3>
             <form action="index.php?verlag" method="post">
                 <div class="form-group">
                     <label for="verlag">Verlag</label>
