@@ -30,7 +30,7 @@
                         <a class="nav-link active" aria-current="page" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#neu">Neuigkeit</a>
+                        <a class="nav-link" href="#neu">Neuigkeiten</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#zeit">Öffnungszeiten</a>

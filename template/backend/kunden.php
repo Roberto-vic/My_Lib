@@ -1,11 +1,11 @@
 <?php neueKunde() ?>
 <?php kundeLoschen() ?>
 
-<div class="col ms-auto mt-5">
+<div class="col-11 ms-auto mt-5 mb-auto">
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Kunden</h3>
     </div>
-    <div class="row">
+    <div class="row ms-5">
     <div class="col-md-9">
         <table class="table table-bordered">
             <thead>
