@@ -22,7 +22,7 @@
             </table>
         </div>
         <div class="col-md-3 no-wrap">
-            <h3>Neue Kategorie einfügen</h3>
+            <h3>Kategorie hinzufügen</h3>
             <form action="index.php?kategorie" method="post">
                 <label for="kategorie">Kategorie name</label>
                 <input type="text" name="kategorie" id="">

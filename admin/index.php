@@ -30,8 +30,8 @@
         <div class="container-fluid">
             <nav class="navbar fixed-top">
                 <a class="navbar-brand ms-4" href="../index.php"><i class="fa-solid fa-book-open-reader" style="color: #e56815;"> RP Dashboard</i></a>
-                <form action="suche.php" method="get" class="d-flex ms-auto w-50" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Titel Suchen" aria-label="search" name="search">
+                <form action="index.php?buecherSuchen" method="post" class="d-flex w-50 me-5" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Titel Suchen z.B. Herr der Ringe" aria-label="search" name="search">
                     <button class="btn btn-outline" name="submit" type="submit">Suchen</button>
                 </form>
                 <div class="btn-group dropstart ms-auto">
@@ -56,7 +56,7 @@
             <div class="col side justify-content-center" style="position: fixed; z-index:0; top:0; bottom: 0; float:left;">
                 <ul class="nav flex-column ms-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?buecher">Büchern</a>
+                        <a class="nav-link active" href="index.php?buecher">Bücher</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="index.php?autoren">Autoren</a>
@@ -118,6 +118,9 @@
             }
             if (isset($_GET['buchUpdate'])) {
                 include(BACK_END . DS . 'buchUpdate.php');
+            }
+            if (isset($_GET['buecherSuchen'])) {
+                include(BACK_END . DS . 'buecherSuchen.php');
             }
             ?>
 

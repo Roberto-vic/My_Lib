@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-6 offset-2">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nachname</label>
                     <input type="text" name="name" class="form-control mb-3">
                 </div>
                 <div class="form-group">
