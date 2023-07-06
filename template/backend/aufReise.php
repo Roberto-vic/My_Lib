@@ -18,6 +18,7 @@
                 </thead>
                 <tbody>
                     <?php aufreiseTabelle() ?>
+                    <?php  ?>
                 </tbody>
             </table>
         </div>

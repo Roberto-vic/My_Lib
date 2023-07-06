@@ -11,8 +11,8 @@ include_once("config.php");
 
     <!-- section -->
     <div class="container-fluid my-5">
-        <div class="row">
-            <h1 class="text-center my-2">Realitätspause - Buchsuche</h1>
+        <div class="row mt-5">
+            <h1 class="text-center my-5">Realitätspause - Buchsuche</h1>
             <hr>
             <p class="text-center mb-3">Hier kannst du das gewünschte Buch nach Titel, Autor oder Genre suchen....</p>
         </div>
@@ -32,7 +32,7 @@ include_once("config.php");
                     $search = $_POST['search'];
 
                     // TODO: Später auslagern
-                    $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name 
+                    $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name, Anzahl, Bilder, Beschreibung 
                         FROM bücher 
                         INNER JOIN geschrieben ON Signatur = Signatur_ID 
                         INNER JOIN verlage ON Verlag_Nr = Verlag_ID 
@@ -50,7 +50,7 @@ include_once("config.php");
                         if (!$ergebnis) {
                             echo "Kein Ergebnis gefunden.";
                         } else { ?>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered text-center">
                                 <thead>
                                     <tr>
                                         <th>Titel</th>
@@ -58,24 +58,53 @@ include_once("config.php");
                                         <th>Kategorie</th>
                                         <th>Verlag</th>
                                         <th>ISBN</th>
+                                        <th>Verfügbarkeit</th>
+                                        <th>Preview</th>
                                     </tr>
                                 </thead>
-                                <tbody> <?php
-                                        $buch = "";
-                                        foreach ($ergebnis as $inhalt) {
-                                            $buch .= <<<BUCH
+                                <tbody>
+                                <?php
+
+                                $buch = "";
+                                foreach ($ergebnis as $inhalt) {
+                                    $verfügbar = $inhalt['Anzahl'];
+                                    if ($verfügbar > 0) {
+                                        $text = "Verfügbar";
+                                    } else {
+                                        $text = "Nicht Verfügbar";
+                                    }
+
+                                    $beschreibung = htmlspecialchars($inhalt['Beschreibung']);
+
+                                    $buch .= <<<BUCH
                                             <tr>
                                                 <td>{$inhalt['Titel']}</td>
                                                 <td>{$inhalt['Autoren_Vorname']} {$inhalt['Autoren_Name']}</td>
                                                 <td>{$inhalt['Kategorie_Name']}</td>
                                                 <td>{$inhalt['Verlag_Name']}</td>
                                                 <td>{$inhalt['ISBN']}</td>
+                                                <td>{$text}</td>
+                                                <td><span class="buch-card"
+                                                data-bs-toggle="popover"
+                                                data-bs-trigger="hover"
+                                                data-bs-placement="left"
+                                                data-bs-html="true"
+                                                data-bs-content="
+                                                  <div class='card shadow me-1' style='width: 25rem;'>
+                                                    <img src='./assets/img_art/{$inhalt['Bilder']}' class='card-img-top mx-3' alt='...'>
+                                                    <div class='card-body'>
+                                                      <h5 class='card-title'>{$inhalt['Titel']}</h5>
+                                                      <p class='card-text'>{$beschreibung}</p>
+                                                    </div>
+                                                  </div>
+                                                "><i class="fa-solid fa-eye" style="color: #ff9224;"></i>
+                                                </span></td>
                                             </tr>
                                             BUCH;
-                                        }
+                                }
 
-                                        echo $buch;
-                                    } ?>
+                                echo $buch;
+                            } ?>
                                 </tbody>
                             </table>
             </div>

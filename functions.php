@@ -599,20 +599,19 @@ function neueKunde()
 
 
 // aufreise Tabelle 
-function aufreiseTabelle(){
+function aufreiseTabelle()
+{
     $sql = "SELECT * FROM ausleihen 
             INNER JOIN kunden ON Kunden_Nr = Kunden_ID
             INNER JOIN bücher ON Signatur_Nr = Signatur_ID;";
     $result = query($sql);
     confirm($result);
 
-    if(isset($_POST['rueckgabe'])){
-        $sql = "INSERT INTO ausleihen VALUE ";
-    }
+
 
     $liste = '';
 
-    foreach($result as $row){
+    foreach ($result as $row) {
         $liste .= <<<LIST
             <tr>
                 <td>{$row['Kunden_Nr']}</td>
@@ -622,66 +621,32 @@ function aufreiseTabelle(){
                 <td>{$row['Ausleih_Datum']}</td>
                 <td>{$row['Rückgabe_Datum']}</td>
                 <td>
-                <a href="" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Zurück</a>
-                <input type="hidden" name="rueckgabe" value="{$row['Kunden_Nr']}">
+                <form method="post" action="">
+                <input type="submit" value="Zurück" class="btn btn-outline btn-sm">
+                <input type="hidden" name="rueckgabe" value="{$row['Ausleih_ID']}">
+                </form>
                 </td>
             </tr>
         LIST;
-    }
 
+        $datum = date('Y,m,d');
+        if (isset($_POST['rueckgabe'])) {
+            $ausleihn = $row['Ausleih_ID'];
+            $sql = "UPDATE ausleihen SET Rückgabe_Datum = '$datum', Rückgabe_Status = true WHERE Ausleih_ID = $ausleihn;";
+            $result = query($sql);
+            confirm($result);
+
+            header("Location: index.php?aufreise");
+        }
+    }
+    // rueckgabe();
     echo $liste;
 }
-// function searchBooks($search) {
-    
-//     //if (isset($_POST['submit'])) {
-//         //$search = $_POST['search'];
-//         echo "OK2";
-//     var_dump($search);    
-//     $servername = "localhost";
-//     $username = "root";
-//     $password = "";
 
-//     $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name 
-//             FROM bücher 
-//             INNER JOIN geschrieben ON Signatur = Signatur_ID 
-//             INNER JOIN verlage ON Verlag_Nr = Verlag_ID 
-//             INNER JOIN kategorien ON Kategorie = Kategorie_ID 
-//             INNER JOIN autoren ON Autor_ID = Autor_Nr
-//             WHERE Titel LIKE '%$search%'
-//             GROUP BY Signatur_ID
-//             ORDER BY Signatur_ID ASC;";
+// Ruckgabe von Bücher
+// function rueckgabe(){
 
-//     try {
-//         $dbh = new PDO("mysql:dbname=Projekt_Realitätspause;host=localhost", "root", "");
-//         $rueckgabe = $dbh->query($sql);
-//         $ergebnis = $rueckgabe->fetchAll(PDO::FETCH_ASSOC);
-
-//         if (!$ergebnis) {
-//             echo "Kein Ergebnis gefunden.";
-//         } else {
-//             foreach ($ergebnis as $inhalt) {
-//                 $buch .= <<<BUCH
-//                 <tr>
-//                     <td>{$inhalt['Signatur_ID']}</td>
-//                     <td>{$inhalt['Titel']}</td>
-//                     <td>{$inhalt['Autoren_Vorname']} {$inhalt['Autoren_Name']}</td>
-//                     <td>{$inhalt['Kategorie_Name']}</td>
-//                     <td>{$inhalt['Verlag_Name']}</td>
-//                     <td>{$inhalt['ISBN']}</td>
-//                     <td><a href="index.php?buchUpdate&id={$inhalt['Signatur_ID']}" class="btn btn-outline btn-sm" role="button">Edit</a></td>
-//                     <td>
-//                     <form action="" method="post">
-//                     <input type="submit" value="Löschen" class="btn btn-outline btn-sm"> 
-//                     <input type='hidden' name='delete' value = {$inhalt['Signatur_ID']}>
-//                     </form>
-//                     </td>
-//                 </tr>
-//                 BUCH;
-//             }
+//     if(isset($_POST['rueckgabe'])){
         
-//             echo $buch;
-//         }
-//     } catch (PDOException $e) {
-//         echo $e->getMessage();
 //     }
 // }
