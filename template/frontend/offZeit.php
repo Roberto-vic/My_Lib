@@ -2,7 +2,7 @@
     <div class="col-lg-6 offset-lg-3 text-center" id="zeit">
         <h2 class="mt-5 pt-4" style="color:#F4D35E">Öffnungszeiten</h2>
         <hr>
-        <p style="color: #F4D35E;">Wir sind von Montag bis Samstag für sie da !!</p>
+        <p style="color: #F4D35E;">Wir sind gerne von Montag bis Samstag für Sie da</p>
     </div>
 </div>
 <div class="row">

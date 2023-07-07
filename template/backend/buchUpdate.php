@@ -66,7 +66,7 @@ if (isset($_GET['id'])) {
             <div class="col-md-5">
 
                 <div class="form-group">
-                    <label for="isbn">ISBN-N.</label>
+                    <label for="isbn">ISBN</label>
                     <input type="text" name="isbn" class="form-control mb-3" value='<?php echo $isbn ?>'>
                 </div>
                 <div class="form-group">

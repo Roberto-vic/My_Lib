@@ -2,11 +2,11 @@
     <div class="col-lg-4 offset-lg-1 my-5" id="kontakt">
         <div class="mb-3">
             <label for="" class="form-label">Name: </label>
-            <input type="text" class="form-control" id="" placeholder="name" require>
+            <input type="text" class="form-control" id="" placeholder="Vor und Nachname" require>
         </div>
         <div class="mb-3">
-            <label for="" class="form-label">Email: </label>
-            <input type="email" class="form-control" id="" placeholder="name@example.com" require>
+            <label for="" class="form-label">E-mail: </label>
+            <input type="email" class="form-control" id="" placeholder="name@email.com" require>
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Nachricht: </label>
@@ -19,13 +19,13 @@
     <div class="col-lg-4 offset-lg-1 text-center my-5">
         <h2 style="color: #0d3b66;">Kontakt</h2>
         <hr>
-        <p style="color: #0d3b66;">Schreiben Sie uns Ihre Eindrücke, Vorschläge und/oder Ratschläge, wenn Sie etwas wissen möchten oder Informationen erhalten möchten</p>
+        <p style="color: #0d3b66;">schreiben Sie uns Ihre Eindrücke, Vorschläge und/oder Bücherwünsche, wir melden uns Zeitnah bei Ihnen zurück.</p>
         <br>
-        <p style="color: #0d3b66;" class="py-3">Unser Hauptsitz befindet sich in: <br>
+        <p style="color: #0d3b66;" class="py-3">Unser Hauptsitz befindet sich am: <br>
             Steintorwall 234 <br>
             20031 Hamburg <br><br>
-            Telefon: 040/2354367 <br>
-            Mail: realitaetespause@test.de
+            Telefon: 040 / 23 54 367 <br>
+            Mail: realitaetspause@test.de
         </p>
         <div class="container-fluid">
             <span class="me-4"><i class="fa-brands fa-facebook fa-xl" style="color: #0b5be5;"></i></span>

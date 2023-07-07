@@ -9,8 +9,8 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Firma</th>
+                        <th>ID</th>
+                        <th>Verlag</th>
                         <th>Ort</th>
                         <th></th>
                         <th></th>
@@ -24,10 +24,10 @@
             </table>
         </div>
         <div class="col-md-3 no-wrap">
-            <h3>Verlag hinzufügen</h3>
+            <h3>Verlag <br> hinzufügen</h3>
             <form action="index.php?verlag" method="post">
                 <div class="form-group">
-                    <label for="verlag">Verlag</label>
+                    <label for="verlag">Name des Verlags</label>
                     <input type="text" name="verlag" id="" class="form-control mb-3">
                 </div>
                 <div class="form-group">

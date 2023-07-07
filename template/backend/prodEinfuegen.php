@@ -33,7 +33,7 @@
 
             <div class="col-md-5">
                 <div class="form-group">
-                    <label for="isbn">ISBN-N.</label>
+                    <label for="isbn">ISBN</label>
                     <input type="text" name="isbn" class="form-control mb-3">
                 </div>
                 <div class="form-group">
@@ -54,7 +54,7 @@
                     <input type="number" name="anzahl" class="form-control mb-3" min="0">
                 </div>
                 <div class="form-group mt-3">
-                    <label for="bilder">Bilder</label>
+                    <label for="bilder">Bild  =>  </label>
                     <input type="file" name="bilder">
                 </div>
                 <div class="form-group mt-3">
