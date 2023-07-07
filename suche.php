@@ -14,7 +14,7 @@ include_once("config.php");
         <div class="row mt-5">
             <h1 class="text-center my-5">Realitätspause - Buchsuche</h1>
             <hr>
-            <p class="text-center mb-3">Hier kannst du das gewünschte Buch nach Titel, Autor oder Genre suchen....</p>
+            <p class="text-center mb-3">Hier können Sie Ihr Lieblingsbuch suchen, einfach den Titel eingeben und los..</p>
         </div>
         <div class="col-lg-10 offset-2">
             <div class="input-group my-4">

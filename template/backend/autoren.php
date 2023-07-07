@@ -10,7 +10,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Vorname</th>
                         <th>Nachname</th>
                         <th></th>
@@ -26,10 +26,10 @@
         <div class="col-md-2 no-wrap">
             <h3>Autor hinzufügen</h3>
             <form action="index.php?autoren" method="post">
-                <label for="kategorie">Vorname</label>
+                <label for="kategorie">Vorname:</label>
                 <input type="text" name="autorVor" id="">
                 <br>               
-                <label for="kategorie">Nachname</label>
+                <label for="kategorie">Nachname:</label>
                 <input type="text" name="autorNam" id="">
                 <br>
                 <input type="submit" value="Add" name="Add" class="btn btn-outline btn-sm mt-3">

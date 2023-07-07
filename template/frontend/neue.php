@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-6 offset-3 text-center" id="neu">
-        <h2 class="mt-5 pt-4">Letzte Einkäufe und Neuigkeiten</h2>
+        <h2 class="mt-5 pt-4">Aktuelle Neuzugänge</h2>
         <hr>
-        <p>Wir zeigen die neuesten Bücher im Katalog</p>
+        <p>Die volle Auswahl gibt es bei der Büchersuche</p>
     </div>
 </div>
 <div class="row">
