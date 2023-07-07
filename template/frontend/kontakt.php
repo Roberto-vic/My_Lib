@@ -1,20 +1,24 @@
+<?php kontaktFormular() ?>
+
 <div class="row">
     <div class="col-lg-4 offset-lg-1 my-5" id="kontakt">
-        <div class="mb-3">
-            <label for="" class="form-label">Name: </label>
-            <input type="text" class="form-control" id="" placeholder="Vor und Nachname" require>
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label">E-mail: </label>
-            <input type="email" class="form-control" id="" placeholder="name@email.com" require>
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Nachricht: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" require></textarea>
-        </div>
-        <div class="mb-3">
-            <input type="submit" value="Senden" class="btn btn-lg border rounded-pill">
-        </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="" class="form-label">Name: </label>
+                <input type="text" name="Name" class="form-control" placeholder="name" require>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Email: </label>
+                <input type="email" name="email" class="form-control" placeholder="name@example.com" require>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Nachricht: </label>
+                <textarea class="form-control" name="nachricht" rows="5" require></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="submit" name="submit" value="Senden" class="btn btn-lg border rounded-pill">
+            </div>
+        </form>
     </div>
     <div class="col-lg-4 offset-lg-1 text-center my-5">
         <h2 style="color: #0d3b66;">Kontakt</h2>

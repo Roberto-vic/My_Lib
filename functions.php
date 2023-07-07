@@ -643,10 +643,18 @@ function aufreiseTabelle()
     echo $liste;
 }
 
-// Ruckgabe von Bücher
-// function rueckgabe(){
+// Kontakte formular
+function kontaktFormular()
+{
+    if (isset($_POST['submit'])) {
+        $name = $_POST['Name'];
+        $email = $_POST['email'];
+        $nachricht = $_POST['nachricht'];
 
-//     if(isset($_POST['rueckgabe'])){
-        
-//     }
-// }
+        $sql = "INSERT INTO kontakte (Name, email, nachricht) VALUES ('$name', '$email', '$nachricht');";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php");
+    }
+}
