@@ -73,6 +73,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?aufreise">Auf reise</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?nachrichte">Nachrichten</a>
+                    </li>
                 </ul>
             </div>
 
@@ -81,8 +84,13 @@
 
             <!-- Main -->
             <?php
-            // if($_SERVER['REQUEST_URI'] == "Projekt/My_Lib/admin/" || $_SERVER['REQUEST_URI'] == "Projekt/My_Lib/admin/index.php"){
-            // }
+
+            if(isset($_GET['nachrichte'])){
+                include(BACK_END . DS . 'nachrichte.php');
+            }
+            if(isset($_GET['neueAntrage'])){
+                include(BACK_END . DS .'neueAntrage.php');
+            }
             if (isset($_GET['buecher'])) {
                 include(BACK_END . DS . 'buecher.php');    
             }
@@ -151,17 +159,6 @@
             .catch(error => {
                 console.error(error);
             });
-
-        // function checkOption(select) {
-        //     var option = select.value;
-        //     if (option === 'neue') {
-        //         document.getElementById('neueAutor').style.display = 'block';
-        //         document.getElementById('neueAutor').style.display = 'block';
-        //     } else {
-        //         document.getElementById('neueAutor').style.display = 'none';
-        //         document.getElementById('neueAutor').style.display = 'none';
-        //     }
-        // }
     </script>
 
 </body>

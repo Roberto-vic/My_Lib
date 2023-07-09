@@ -23,7 +23,7 @@
     <div class="col-lg-4 offset-lg-1 text-center my-5">
         <h2 style="color: #0d3b66;">Kontakt</h2>
         <hr>
-        <p style="color: #0d3b66;">Schreiben Sie uns Ihre Eindrücke, Vorschläge und/oder Ratschläge, wenn Sie etwas wissen möchten oder Informationen erhalten möchten</p>
+        <p style="color: #0d3b66;">Schreiben Sie uns Ihre Eindrücke, Vorschläge und/oder Ratschläge, wenn Sie etwas wissen möchten oder Informationen und Reservierung von Bücher erhalten möchten</p>
         <br>
         <p style="color: #0d3b66;" class="py-3">Unser Hauptsitz befindet sich in: <br>
             Steintorwall 234 <br>

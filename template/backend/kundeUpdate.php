@@ -15,6 +15,7 @@ if (isset($_GET['id'])) {
         $strasse = $kunde['Straße'];
         $plz = $kunde['PLZ'];
         $ort = $kunde['Ort'];
+        $mail = $kunde['Mail'];
     }
     
     kundeUpdate();
@@ -36,11 +37,11 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="form-group">
                     <label for="autor">Vorname</label>
-                    <input type="text" name="vorname" class="form-control mb-3" value='<?php echo $vorname ?>''>
+                    <input type="text" name="vorname" class="form-control mb-3" value='<?php echo $vorname ?>'>
                 </div>
                 <div class="form-group">
                     <label for="strasse">Straße/N.</label>
-                    <input type="text" name="strasse" class="form-control mb-3" value='<?php echo $strasse ?>''>
+                    <input type="text" name="strasse" class="form-control mb-3" value='<?php echo $strasse ?>'>
                 </div>
                 <div class="form-group">
                     <label for="plz">PLZ</label>
@@ -49,6 +50,10 @@ if (isset($_GET['id'])) {
                 <div class="form-group">
                     <label for="ort">Ort</label>
                     <input type="text" name="ort" class="form-control mb-3" value='<?php echo $ort ?>'>
+                </div>
+                <div class="form-group">
+                    <label for="ort">Email</label>
+                    <input type="email" name="mail" class="form-control mb-3" value='<?php echo $mail ?>'>
                 </div>
                 <div class="form-group mt-3">
                     <input type="submit" name="update" class="btn btn-outline" value="Speichern">

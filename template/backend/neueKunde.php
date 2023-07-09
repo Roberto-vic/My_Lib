@@ -28,6 +28,10 @@
                     <label for="ort">Ort</label>
                     <input type="text" name="ort" class="form-control mb-3">
                 </div>
+                <div class="form-group">
+                    <label for="ort">Email</label>
+                    <input type="email" name="mail" class="form-control mb-3">
+                </div>
                 <div class="form-group mt-3">
                     <input type="submit" name="Einfügen" class="btn btn-outline" value="Einfügen">
                 </div>

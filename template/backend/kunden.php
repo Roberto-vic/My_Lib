@@ -10,12 +10,13 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Kundennummer</th>
+                    <th>K.Nr</th>
                     <th>Name</th>
                     <th>Vorname</th>
                     <th>Straße</th>
                     <th>PLZ</th>
                     <th>Ort</th>
+                    <th>Email</th>
                     <th></th>
                 </tr>
             </thead>

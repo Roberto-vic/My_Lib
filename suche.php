@@ -69,9 +69,9 @@ include_once("config.php");
                                 foreach ($ergebnis as $inhalt) {
                                     $verfügbar = $inhalt['Anzahl'];
                                     if ($verfügbar > 0) {
-                                        $text = "Verfügbar";
+                                        $text = "Verfügbar <b style='color: green;'>{$inhalt['Anzahl']}</b> Kopie";
                                     } else {
-                                        $text = "Nicht Verfügbar";
+                                        $text = "<b style='color: red;'>Nicht Verfügbar</b>";
                                     }
 
                                     $beschreibung = htmlspecialchars($inhalt['Beschreibung']);

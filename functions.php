@@ -511,11 +511,10 @@ function kunden()
     echo $kunden;
 }
 
-
 // Kunden Tabelle
 function kundenTabelle()
 {
-    $sql = "SELECT Kunden_ID, Vorname, Name, PLZ, Straße, Ort FROM kunden";
+    $sql = "SELECT * FROM kunden";
     $result = query($sql);
     confirm($result);
 
@@ -529,7 +528,8 @@ function kundenTabelle()
             <td>{$row['Name']}</td>
             <td>{$row['Straße']}</td>
             <td>{$row['PLZ']}</td>
-            <td>{$row['Ort']}</td>
+            <td>{$row['Ort']}</td>            
+            <td>{$row['Mail']}</td>
             <td>
             <form method="post" action="">
             <input type="submit" value="Löschen" class="btn btn-outline btn-sm">
@@ -568,8 +568,9 @@ function kundeUpdate()
         $plz = $_POST['plz'];
         $strasse = $_POST['strasse'];
         $ort = $_POST['ort'];
+        $mail = $_POST['mail'];
 
-        $sql = "UPDATE kunden SET Vorname = '$vorname', Name = '$name', PLZ = '$plz', Straße = '$strasse', Ort = '$ort' WHERE Kunden_ID = {$_GET['id']}";
+        $sql = "UPDATE kunden SET Vorname = '$vorname', Name = '$name', PLZ = '$plz', Straße = '$strasse', Ort = '$ort', Mail = '$mail' WHERE Kunden_ID = {$_GET['id']}";
         $result = query($sql);
         confirm($result);
 
@@ -586,8 +587,9 @@ function neueKunde()
         $plz = $_POST['plz'];
         $strasse = $_POST['strasse'];
         $ort = $_POST['ort'];
+        $mail = $_POST['mail'];
 
-        $sql = "INSERT INTO kunden (Name, Vorname, Straße, PLZ, Ort) VALUES ('$name', '$vorname', '$strasse', '$plz', '$ort')";
+        $sql = "INSERT INTO kunden (Name, Vorname, Straße, PLZ, Ort, Mail) VALUES ('$name', '$vorname', '$strasse', '$plz', '$ort', '$mail')";
         $result = query($sql);
         confirm($result);
 
@@ -603,45 +605,53 @@ function aufreiseTabelle()
 {
     $sql = "SELECT * FROM ausleihen 
             INNER JOIN kunden ON Kunden_Nr = Kunden_ID
-            INNER JOIN bücher ON Signatur_Nr = Signatur_ID;";
+            INNER JOIN bücher ON Signatur_Nr = Signatur_ID
+            GROUP BY Ausleih_Datum ASC;";
     $result = query($sql);
     confirm($result);
-
-
 
     $liste = '';
 
     foreach ($result as $row) {
+        $datumA = date_format(date_create($row['Ausleih_Datum']), 'd-m-Y');
+        $datumR = ($row['Rückgabe_Datum'] !== NULL) ? date_format(date_create($row['Rückgabe_Datum']), 'd-m-Y') : '';
         $liste .= <<<LIST
             <tr>
                 <td>{$row['Kunden_Nr']}</td>
                 <td>{$row['Name']}</td>
                 <td>{$row['Vorname']}</td>
                 <td>{$row['Titel']}</td>
-                <td>{$row['Ausleih_Datum']}</td>
-                <td>{$row['Rückgabe_Datum']}</td>
+                <td>{$datumA}</td>
+                <td>{$datumR}</td>
                 <td>
-                <form method="post" action="">
-                <input type="submit" value="Zurück" class="btn btn-outline btn-sm">
-                <input type="hidden" name="rueckgabe" value="{$row['Ausleih_ID']}">
-                </form>
+                    <form method="post" action="">
+                        <input type="submit" value="Zurück" class="btn btn-outline btn-sm">
+                        <input type="hidden" name="rueckgabe" value="{$row['Ausleih_ID']}">
+                    </form>
                 </td>
             </tr>
         LIST;
 
-        $datum = date('Y,m,d');
+        $datum = date('Y-m-d');
         if (isset($_POST['rueckgabe'])) {
-            $ausleihn = $row['Ausleih_ID'];
-            $sql = "UPDATE ausleihen SET Rückgabe_Datum = '$datum', Rückgabe_Status = true WHERE Ausleih_ID = $ausleihn;";
+            $ausleihId = $_POST['rueckgabe'];
+        
+            $sql = "UPDATE ausleihen SET Rückgabe_Datum = '$datum', Rückgabe_Status = true WHERE Ausleih_ID = $ausleihId;";
+            $result = query($sql);
+            confirm($result);
+
+            $sql = "UPDATE bücher SET Anzahl = Anzahl + 1 WHERE Signatur_ID = {$row['Signatur_Nr']};";
             $result = query($sql);
             confirm($result);
 
             header("Location: index.php?aufreise");
+            exit();
         }
     }
-    // rueckgabe();
+
     echo $liste;
 }
+
 
 // Kontakte formular
 function kontaktFormular()
@@ -657,4 +667,90 @@ function kontaktFormular()
 
         header("Location: index.php");
     }
+}
+
+
+// Bucher verlehien.... 
+// Kunden ID
+function kundeNr()
+{
+
+    $sql = "SELECT Kunden_ID FROM kunden;";
+    $result = query($sql);
+    confirm($result);
+
+    $kunden_id = '';
+
+    foreach ($result as $kn) {
+        $kunden_id .= <<<NUM
+        echo "<option value='{$kn['Kunden_ID']}'>{$kn['Kunden_ID']}</option>";
+        NUM;
+    }
+    echo $kunden_id;
+}
+
+// ferfügbares Bücher
+function buchLei()
+{
+
+    $sql = "SELECT * FROM bücher;";
+    $result = query($sql);
+    confirm($result);
+
+    $buecher = '';
+
+    foreach ($result as $buch) {
+        if ($buch['Anzahl'] > 0) {
+            $buecher .= <<<BUCH
+            <option value='{$buch['Signatur_ID']}'>{$buch['Titel']}</option>
+            BUCH;
+        }
+    }
+    echo $buecher;
+}
+
+// Buch ausleihen
+function ausleihen()
+{
+    if (isset($_POST['verleihen'])) {
+        $knNr = $_POST['kundennummer'];
+        $titel = $_POST['buch'];
+        $tag = $_POST['start'];
+
+        $sql = "INSERT INTO ausleihen (Kunden_Nr, Ausleih_Datum, Signatur_Nr) 
+        SELECT k.Kunden_ID, '$tag', b.Signatur_ID
+        FROM kunden k
+        JOIN bücher b ON b.Signatur_ID = '$titel'
+        WHERE k.Kunden_ID = '$knNr';
+        UPDATE bücher SET Anzahl = Anzahl -1 WHERE Signatur_ID = '$titel';";
+
+        $result = query($sql);
+        confirm($result);
+
+        header('Location: index.php?aufreise');
+    }
+}
+
+// Nachrichten lesen
+function nachrichtenLesen()
+{
+    $sql = "SELECT * FROM kontakte ORDER BY id DESC;";
+    $result = query($sql);
+    confirm($result);
+
+    $nachrichten = '';
+
+    foreach ($result as $nachricht) {
+
+        $datum = date_format(date_create($nachricht['datum']), 'd-m-Y H:i');
+        $nachrichten .= <<<NACH
+        <tr>
+            <td>{$nachricht['Name']}</td>
+            <td>{$nachricht['email']}</td>
+            <td>{$nachricht['nachricht']}</td>
+            <td>{$datum}</td>
+        </tr>
+        NACH;
+    }
+    echo $nachrichten;
 }

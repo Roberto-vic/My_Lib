@@ -1,3 +1,13 @@
+<?php
+function is_home(){
+    if(isset($_GET['home'])){
+        return true;
+    }else{
+        return false;
+    }
+}
+?>
+
 <!doctype html>
 <html lang="de">
 
@@ -27,16 +37,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?php echo is_home() ? '#home' : 'index.php#home'; ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#neu">Neuigkeiten</a>
+                        <a class="nav-link" href="<?php echo is_home() ? '#neu' : 'index.php#neu'; ?>">Neuigkeiten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#zeit">Öffnungszeiten</a>
+                        <a class="nav-link" href="<?php echo is_home() ? '#zeit' : 'index.php#zeit'; ?>">Öffnungszeiten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#kontakt">Kontakt</a>
+                        <a class="nav-link" href="<?php echo is_home() ? '#kontakt' : 'index.php#kontakt'; ?>">Kontakt</a>
                     </li>
                     <li class="nav-item">  
                         <a class="nav-link" href="login.php">Login</a>
