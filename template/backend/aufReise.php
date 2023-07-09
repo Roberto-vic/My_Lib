@@ -7,12 +7,12 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Kundennummer</th>
+                        <th>Knd.Nr</th>
                         <th>Nachname</th>
                         <th>Vorname</th>
                         <th>Titel</th>
                         <th>Entleihdatum</th>
-                        <th>Ruckgabedatum</th>
+                        <th>Rückgabedatum</th>
                         <th></th>
                     </tr>
                 </thead>

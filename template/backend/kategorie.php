@@ -9,7 +9,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Kategorie</th>
                         <th></th>
                     </tr>
@@ -22,9 +22,9 @@
             </table>
         </div>
         <div class="col-md-3 no-wrap">
-            <h3>Kategorie hinzufügen</h3>
+            <h3>Kategorie <br> hinzufügen</h3>
             <form action="index.php?kategorie" method="post">
-                <label for="kategorie">Kategorie name</label>
+                <label for="kategorie">Kategorie Name:</label>
                 <input type="text" name="kategorie" id="">
                 <br>
                 <input type="submit" value="Add" name="Add" class="btn btn-outline btn-sm mt-3">

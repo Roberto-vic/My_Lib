@@ -121,7 +121,7 @@ function neueAutor()
     }
 }
 
-// Tabelle von alles Bücher die wir haben 
+// Tabelle von allen Bücher die wir haben 
 function buchListe()
 {
     $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name 

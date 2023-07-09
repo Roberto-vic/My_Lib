@@ -10,7 +10,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>K.Nr</th>
+                    <th>Knd.Nr</th>
                     <th>Name</th>
                     <th>Vorname</th>
                     <th>Straße</th>
