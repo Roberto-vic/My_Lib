@@ -54,7 +54,7 @@
                     <input type="number" name="anzahl" class="form-control mb-3" min="0">
                 </div>
                 <div class="form-group mt-3">
-                    <label for="bilder">Bild  =>  </label>
+                    <label for="bilder">Bild</label>
                     <input type="file" name="bilder">
                 </div>
                 <div class="form-group mt-3">
