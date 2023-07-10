@@ -29,7 +29,7 @@ include_once("config.php");
                 <?php
                 if (isset($_POST['submit'])) {
 
-                    $search = $_POST['search'];
+                    $search = filter_var($_POST['search']);
 
                     // TODO: Später auslagern
                     $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name, Anzahl, Bilder, Beschreibung 

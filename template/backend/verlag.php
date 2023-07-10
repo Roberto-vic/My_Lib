@@ -4,12 +4,12 @@
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Verlage</h3>
     </div>
-    <div class="row">
-        <div class="col-md-6 offset-2">
+    <div class="row ms-5">
+        <div class="col-md-9 offset-1">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Verlag Nr</th>
                         <th>Verlag</th>
                         <th>Ort</th>
                         <th></th>
@@ -23,7 +23,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-3 no-wrap">
+        <div class="col-md-2 no-wrap">
             <h3>Verlag <br> hinzufügen</h3>
             <form action="index.php?verlag" method="post">
                 <div class="form-group">

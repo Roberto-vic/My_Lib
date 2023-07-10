@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="./assets/img/favicon/favicon-32x32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/favicon/favicon-32x32.png" type="image/x-icon">
     <title>Realitätspause Admin</title>
 
     <!-- Bootstrap -->
@@ -42,7 +42,7 @@
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                     <button type="button" class="btn">
-                        Hallo, <?php echo @$_SESSION["username"] ?>
+                        Hallo, Admin
                     </button>
                 </div>
             </nav>
@@ -76,6 +76,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?nachrichte">Nachrichten</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?mitarbeiter">Mitarbeitern</a>
+                    </li>
                 </ul>
             </div>
 
@@ -85,6 +88,12 @@
             <!-- Main -->
             <?php
 
+            if(isset($_GET['neueMitarbeiter'])){
+                include(BACK_END . DS . 'neueMitarbeiter.php');
+            }
+            if(isset($_GET['mitarbeiter'])){
+                include(BACK_END . DS . 'mitarbeiter.php');
+            }
             if(isset($_GET['nachrichte'])){
                 include(BACK_END . DS . 'nachrichte.php');
             }

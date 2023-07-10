@@ -28,22 +28,22 @@ function last_id()
     return $dbh->lastInsertId();
 }
 
-function set_message($msg)
-{
-    if (!empty($msg)) {
-        $_SESSION['message'] = $msg;
-    } else {
-        $msg = "";
-    }
-}
+// function set_message($msg)
+// {
+//     if (!empty($msg)) {
+//         $_SESSION['message'] = $msg;
+//     } else {
+//         $msg = "";
+//     }
+// }
 
-function display_message()
-{
-    if (isset($_SESSION['message'])) {
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-    }
-}
+// function display_message()
+// {
+//     if (isset($_SESSION['message'])) {
+//         echo $_SESSION['message'];
+//         unset($_SESSION['message']);
+//     }
+// }
 
 // ----------------------------------------------------------------- //
 // Autor Liste
@@ -76,7 +76,7 @@ function autorTabelle()
     foreach ($result as $row) {
         $autoren .= <<<AUTOREN
         <tr>
-            <td>{$row['Autor_ID']}</td>
+            <td>A.Nr-00{$row['Autor_ID']}</td>
             <td>{$row['Autoren_Vorname']}</td>
             <td>{$row['Autoren_Name']}</td>
             <td>
@@ -110,8 +110,8 @@ function autorLoschen()
 function neueAutor()
 {
     if (isset($_POST['Add'])) {
-        $autorVor = $_POST['autorVor'];
-        $autorNam = $_POST['autorNam'];
+        $autorVor = htmlspecialchars($_POST['autorVor']);
+        $autorNam = htmlspecialchars($_POST['autorNam']);
 
         $sql = "INSERT INTO autoren (Autoren_Name, Autoren_Vorname) VALUES ('$autorNam', '$autorVor')";
         $result = query($sql);
@@ -143,7 +143,7 @@ function buchListe()
 
         $buch .= <<<BUCH
         <tr>
-            <td>{$row['Signatur_ID']}</td>
+            <td>B-10{$row['Signatur_ID']}</td>
             <td>{$row['Titel']}</td>
             <td>{$row['Autoren_Vorname']} {$row['Autoren_Name']}</td>
             <td>{$row['Kategorie_Name']}</td>
@@ -168,13 +168,13 @@ function neuesBuch()
 {
     if (isset($_POST['einfuegen'])) {
 
-        $titel = $_POST['titel'];
+        $titel = htmlspecialchars($_POST['titel']);
         $autor = $_POST['autoren'];
-        $beschreibung = $_POST['beschreibung'];
+        $beschreibung = htmlspecialchars($_POST['beschreibung']);
         $kategorie = $_POST['kategorie'];
         $verlag = $_POST['verlag'];
-        $isbn = $_POST['isbn'];
-        $anzahl = $_POST['anzahl'];
+        $isbn = htmlspecialchars($_POST['isbn']);
+        $anzahl = htmlspecialchars($_POST['anzahl']);
         $bild = $_FILES['bilder']['name'];
         $tmp_bild = $_FILES['bilder']['tmp_name'];
 
@@ -200,13 +200,13 @@ function buchUpdate()
 
     if (isset($_POST['edit'])) {
 
-        $titel = $_POST['titel'];
+        $titel = htmlspecialchars($_POST['titel']);
         $autor = $_POST['autor'];
-        $beschreibung = $_POST['beschreibung'];
-        $isbn = $_POST['isbn'];
+        $beschreibung = htmlspecialchars($_POST['beschreibung']);
+        $isbn = htmlspecialchars($_POST['isbn']);
         $kategorie = $_POST['kategorie'];
         $verlag = $_POST['verlag'];
-        $anzahl = $_POST['anzahl'];
+        $anzahl = htmlspecialchars($_POST['anzahl']);
         $bild = $_FILES['bilder']['name'];
         $tmp_bild = $_FILES['bilder']['tmp_name'];
 
@@ -353,7 +353,7 @@ function kategorie()
 
         $kategorien .= <<<KATEGORIE
     <tr>
-        <td>{$kategorie['Kategorie_ID']}</td>
+        <td>Kt.Nr-00{$kategorie['Kategorie_ID']}</td>
         <td>{$kategorie['Kategorie_Name']}</td>
         <td>
         <form action="" method="post">
@@ -373,7 +373,7 @@ function kategorie()
 function addKategorie()
 {
     if (isset($_POST['Add'])) {
-        $kategorie = $_POST['kategorie'];
+        $kategorie = htmlspecialchars($_POST['kategorie']);
 
         $sql = "INSERT INTO kategorien (Kategorie_Name) VALUES ('$kategorie')";
         $result = query($sql);
@@ -431,7 +431,7 @@ function verlage()
 
         $verlageListe .= <<<VERLAG
         <tr>
-                <td>{$verlag['Verlag_ID']}</td>
+                <td>V.Nr-0/{$verlag['Verlag_ID']}</td>
                 <td>{$verlag['Verlag_Name']}</td>
                 <td>{$verlag['Ort']}</td>
             <td>
@@ -455,8 +455,8 @@ function verlage()
 function verlageAdd()
 {
     if (isset($_POST['Add'])) {
-        $verlag = $_POST['verlag'];
-        $ort = $_POST['ort'];
+        $verlag = htmlspecialchars($_POST['verlag']);
+        $ort = htmlspecialchars($_POST['ort']);
 
         $sql = "INSERT INTO verlage (Verlag_Name, Ort) VALUES ('$verlag', '$ort')";
         $result = query($sql);
@@ -488,8 +488,8 @@ function verlageUpdate()
 {
     if (isset($_POST['edit'])) {
 
-        $verlag_name = $_POST['verlag'];
-        $ort = $_POST['ort'];
+        $verlag_name = htmlspecialchars($_POST['verlag']);
+        $ort = htmlspecialchars($_POST['ort']);
 
         $sql = "UPDATE verlage SET Verlag_Name = '$verlag_name', Ort = '$ort' WHERE Verlag_ID = {$_GET['id']}";
         $result = query($sql);
@@ -530,7 +530,7 @@ function kundenTabelle()
     foreach ($result as $row) {
         $kunden .= <<<KUNDEN
         <tr>
-            <td>{$row['Kunden_ID']}</td>
+            <td>K-100{$row['Kunden_ID']}</td>
             <td>{$row['Vorname']}</td>
             <td>{$row['Name']}</td>
             <td>{$row['Straße']}</td>
@@ -541,7 +541,9 @@ function kundenTabelle()
             <form method="post" action="">
             <input type="submit" value="Löschen" class="btn btn-outline btn-sm">
             <input type='hidden' name='delete' value={$row['Kunden_ID']}>
-            <a href="index.php?kundeUpdate&id={$row['Kunden_ID']}" class="btn btn-outline btn-sm"><i class="fa-solid fa-xs fa-pencil" style="color: #e56815;"></i> Edit</a> 
+            </td>
+            <td>
+            <a href="index.php?kundeUpdate&id={$row['Kunden_ID']}" class="btn btn-outline btn-sm"> Edit</a> 
             
             </form>
             </td>
@@ -570,12 +572,12 @@ function kundeLoschen()
 function kundeUpdate()
 {
     if (isset($_POST['update'])) {
-        $vorname = $_POST['vorname'];
-        $name = $_POST['name'];
-        $plz = $_POST['plz'];
-        $strasse = $_POST['strasse'];
-        $ort = $_POST['ort'];
-        $mail = $_POST['mail'];
+        $vorname = htmlspecialchars($_POST['vorname']);
+        $name = htmlspecialchars($_POST['name']);
+        $plz = htmlspecialchars($_POST['plz']);
+        $strasse = htmlspecialchars($_POST['strasse']);
+        $ort = htmlspecialchars($_POST['ort']);
+        $mail = htmlspecialchars($_POST['mail']);
 
         $sql = "UPDATE kunden SET Vorname = '$vorname', Name = '$name', PLZ = '$plz', Straße = '$strasse', Ort = '$ort', Mail = '$mail' WHERE Kunden_ID = {$_GET['id']}";
         $result = query($sql);
@@ -589,12 +591,12 @@ function kundeUpdate()
 function neueKunde()
 {
     if (isset($_POST['Einfügen'])) {
-        $vorname = $_POST['vorname'];
-        $name = $_POST['name'];
-        $plz = $_POST['plz'];
-        $strasse = $_POST['strasse'];
-        $ort = $_POST['ort'];
-        $mail = $_POST['mail'];
+        $vorname = htmlspecialchars($_POST['vorname']);
+        $name = htmlspecialchars($_POST['name']);
+        $plz = htmlspecialchars($_POST['plz']);
+        $strasse = htmlspecialchars($_POST['strasse']);
+        $ort = htmlspecialchars($_POST['ort']);
+        $mail = htmlspecialchars($_POST['mail']);
 
         $sql = "INSERT INTO kunden (Name, Vorname, Straße, PLZ, Ort, Mail) VALUES ('$name', '$vorname', '$strasse', '$plz', '$ort', '$mail')";
         $result = query($sql);
@@ -623,7 +625,7 @@ function aufreiseTabelle()
         $datumR = ($row['Rückgabe_Datum'] !== NULL) ? date_format(date_create($row['Rückgabe_Datum']), 'd-m-Y') : '';
         $liste .= <<<LIST
         <tr>
-        <td>{$row['Kunden_Nr']}</td>
+        <td>K-100{$row['Kunden_Nr']}</td>
         <td>{$row['Name']}</td>
         <td>{$row['Vorname']}</td>
         <td>{$row['Titel']}</td>
@@ -682,7 +684,7 @@ function kundeNr()
 
     foreach ($result as $kn) {
         $kunden_id .= <<<NUM
-        echo "<option value='{$kn['Kunden_ID']}'>{$kn['Kunden_ID']}</option>";
+        echo "<option value='{$kn['Kunden_ID']}'>K-100{$kn['Kunden_ID']}</option>";
         NUM;
     }
     echo $kunden_id;
@@ -735,9 +737,9 @@ function ausleihen()
 function kontaktFormular()
 {
     if (isset($_POST['submit'])) {
-        $name = $_POST['Name'];
-        $email = $_POST['email'];
-        $nachricht = $_POST['nachricht'];
+        $name = htmlspecialchars($_POST['Name']);
+        $email = htmlspecialchars($_POST['email']);
+        $nachricht = htmlspecialchars($_POST['nachricht']);
 
         $sql = "INSERT INTO kontakte (Name, email, nachricht) VALUES ('$name', '$email', '$nachricht');";
         $result = query($sql);
@@ -770,3 +772,70 @@ function nachrichtenLesen()
     }
     echo $nachrichten;
 }
+
+// -------------------------------------------------- //
+// Mitarbeiter Liste
+function mitarbeiterListe(){
+
+    $sql = "SELECT * FROM beschäftigte;";
+    $result = query($sql);
+    confirm($result);
+
+    $mitarbeiter = '';
+
+    foreach($result as $mitarbeitern){
+        $mitarbeiter .= <<<MIT
+        <tr>
+            <td>100{$mitarbeitern['Mitarbeiter_Nr']}</td>
+            <td>{$mitarbeitern['Name']}</td>
+            <td>{$mitarbeitern['Vorname']}</td>
+            <td>{$mitarbeitern['Ort']}</td>
+            <td>{$mitarbeitern['Email']}</td>
+            <td>{$mitarbeitern['Role']}</td>
+            <td>
+                <form method="post" action="">
+                    <input type="submit" value="Löschen" class="btn btn-outline btn-sm">
+                    <input type="hidden" name="delete" value="{$mitarbeitern['Mitarbeiter_Nr']}">
+                </form>
+            </td>
+        </tr>
+        MIT;
+    }
+    echo $mitarbeiter;
+}
+
+// Mitarbeiter löschen
+function mitarbeiterLoeschen(){
+    if(isset($_POST['delete'])){
+        $mitarbeiterNr = $_POST['delete'];
+
+        $sql = "DELETE FROM beschäftigte WHERE Mitarbeiter_Nr = $mitarbeiterNr;";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?mitarbeiter");
+    }
+}
+
+// Mitarbeiter hinzufügen
+function mitarbeiterNeue(){
+
+    if(isset($_POST['Einfügen'])){
+        $name = htmlspecialchars($_POST['name']);
+        $vorname = htmlspecialchars($_POST['vorname']);
+        $ort = htmlspecialchars($_POST['ort']);
+        $user = htmlspecialchars($_POST['username']);
+        $pass = htmlspecialchars($_POST['pass']);
+        $email = htmlspecialchars($_POST['mail']);
+        $role = htmlspecialchars($_POST['role']);
+        $extra = ['cost' => 10];
+        $hash = password_hash($pass, PASSWORD_ARGON2I, $extra);
+
+        $sql = "INSERT INTO beschäftigte (Name, Vorname, Ort, Username, Passwort, Email, Role) VALUES ('$name', '$vorname', '$ort', '$user', '$hash', '$email', '$role');";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php?mitarbeiter");
+    }
+}
+

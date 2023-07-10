@@ -6,7 +6,7 @@
         <div class="col-md-9">
             <?php
             if (isset($_POST['submit'])) {
-    $search = $_POST['search'];
+    $search = filter_var($_POST['search']);
     // TODO: Später auslagern
         $sql = "SELECT Signatur_ID, Titel, Verlag_Name, ISBN, Autoren_Name, Autoren_Vorname, Kategorie_Name, verfügbar
         FROM bücher 
