@@ -10,38 +10,38 @@
         <table class="table table-borderless text-center mt-3 mb-5">
             <thead>
                 <tr>
-                    <th>Öffnungszeit</th>
-                    <th></th>
+                    <th class="p-3">Öffnungszeit</th>
+                    <th class="p-3"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="col">Montag</th>
-                    <th> 9 - 18 </th>
+                    <th scope="col" class="p-3">Montag</th>
+                    <th class="p-3"> 9 - 18 </th>
                 </tr>
                 <tr>
-                    <th scope="col">Dienstag</th>
-                    <th> 9 - 18 </th>
+                    <th scope="col" class="p-3">Dienstag</th>
+                    <th class="p-3"> 9 - 18 </th>
                 </tr>
                 <tr>
-                    <th scope="col">Mittwoch</th>
-                    <th> 9 - 18 </th>
+                    <th scope="col" class="p-3">Mittwoch</th>
+                    <th class="p-3"> 9 - 18 </th>
                 </tr>
                 <tr>
-                    <th scope="col">Donnerstag</th>
-                    <th> 9 - 18 </th>
+                    <th scope="col" class="p-3">Donnerstag</th>
+                    <th class="p-3"> 9 - 18 </th>
                 </tr>
                 <tr>
-                    <th scope="col">Freitag</th>
-                    <th> 9 - 18 </th>
+                    <th scope="col" class="p-3">Freitag</th>
+                    <th class="p-3"> 9 - 18 </th>
                 </tr>
                 <tr>
-                    <th scope="col">Samstag</th>
-                    <th> 9 - 15 </th>
+                    <th scope="col" class="p-3">Samstag</th>
+                    <th class="p-3"> 9 - 15 </th>
                 </tr>
                 <tr>
-                    <th scope="col">Sonntag</th>
-                    <th> Geschlossen </th>
+                    <th scope="col" class="p-3">Sonntag</th>
+                    <th class="p-3"> Geschlossen </th>
                 </tr>
             </tbody>
         </table>

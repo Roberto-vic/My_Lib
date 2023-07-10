@@ -47,7 +47,6 @@ include("config.php");
 </div>
 
 <!-- /Öffnungszeit -->
-
 <!-- Kontakt -->
 
 <div class="container-fluid my-5 py-4">

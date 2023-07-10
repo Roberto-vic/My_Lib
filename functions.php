@@ -45,6 +45,7 @@ function display_message()
     }
 }
 
+// ----------------------------------------------------------------- //
 // Autor Liste
 function autoren()
 {
@@ -121,6 +122,7 @@ function neueAutor()
     }
 }
 
+// ------------------------------------------------------------- //
 // Tabelle von allen Bücher die wir haben 
 function buchListe()
 {
@@ -290,6 +292,7 @@ function buchDelete()
     }
 }
 
+// ---------------------------------------------------------------//
 // lätzte 4 Bücher in Homepage zeigen
 function buchHomepage()
 {
@@ -316,6 +319,8 @@ function buchHomepage()
 
     echo $buch;
 }
+
+// -------------------------------------------------------------- //
 //Kategorie Liste fur Buch einfugen und editieren
 function kategorieList()
 {
@@ -394,6 +399,7 @@ function deleteKat()
     }
 }
 
+// ------------------------------------------------------- //
 // Verlage Liste
 function verlagen()
 {
@@ -493,6 +499,7 @@ function verlageUpdate()
     }
 }
 
+// ---------------------------------------------------------------- //
 // Kunden Liste
 function kunden()
 {
@@ -597,16 +604,15 @@ function neueKunde()
         header("Location: index.php?kunden");
     }
 }
-// Such Funktion in Arbeit.
 
-
+// ------------------------------------------------------------------------ //
 // aufreise Tabelle 
 function aufreiseTabelle()
 {
     $sql = "SELECT * FROM ausleihen 
             INNER JOIN kunden ON Kunden_Nr = Kunden_ID
             INNER JOIN bücher ON Signatur_Nr = Signatur_ID
-            GROUP BY Ausleih_Datum ASC;";
+            ORDER BY Ausleih_Datum ASC;";
     $result = query($sql);
     confirm($result);
 
@@ -616,61 +622,54 @@ function aufreiseTabelle()
         $datumA = date_format(date_create($row['Ausleih_Datum']), 'd-m-Y');
         $datumR = ($row['Rückgabe_Datum'] !== NULL) ? date_format(date_create($row['Rückgabe_Datum']), 'd-m-Y') : '';
         $liste .= <<<LIST
-            <tr>
-                <td>{$row['Kunden_Nr']}</td>
-                <td>{$row['Name']}</td>
-                <td>{$row['Vorname']}</td>
-                <td>{$row['Titel']}</td>
-                <td>{$datumA}</td>
-                <td>{$datumR}</td>
-                <td>
-                    <form method="post" action="">
-                        <input type="submit" value="Zurück" class="btn btn-outline btn-sm">
-                        <input type="hidden" name="rueckgabe" value="{$row['Ausleih_ID']}">
-                    </form>
-                </td>
-            </tr>
+        <tr>
+        <td>{$row['Kunden_Nr']}</td>
+        <td>{$row['Name']}</td>
+        <td>{$row['Vorname']}</td>
+        <td>{$row['Titel']}</td>
+        <td>{$datumA}</td>
+        <td>{$datumR}</td>
+        <td>
+        <form method="post" action="">
+        <input type="submit" value="Zurück" class="btn btn-outline btn-sm">
+        <input type="hidden" name="rueckgabe" value="{$row['Ausleih_ID']}">
+        </form>
+        </td>
+        </tr>
         LIST;
 
+        
         $datum = date('Y-m-d');
+
         if (isset($_POST['rueckgabe'])) {
             $ausleihId = $_POST['rueckgabe'];
-        
+
             $sql = "UPDATE ausleihen SET Rückgabe_Datum = '$datum', Rückgabe_Status = true WHERE Ausleih_ID = $ausleihId;";
             $result = query($sql);
             confirm($result);
 
-            $sql = "UPDATE bücher SET Anzahl = Anzahl + 1 WHERE Signatur_ID = {$row['Signatur_Nr']};";
+            $sql = "SELECT Signatur_Nr FROM ausleihen WHERE Ausleih_ID = $ausleihId";
             $result = query($sql);
             confirm($result);
+            
+            foreach($result as $signatur){
+                $signatur = $signatur['Signatur_Nr'];
+            }
 
+            $sql = "UPDATE bücher SET Anzahl = Anzahl + 1 WHERE Signatur_ID = '$signatur';";
+            $result = query($sql);
+            confirm($result);
+            // var_dump($sql);
             header("Location: index.php?aufreise");
             exit();
         }
     }
 
+
+
     echo $liste;
 }
 
-
-// Kontakte formular
-function kontaktFormular()
-{
-    if (isset($_POST['submit'])) {
-        $name = $_POST['Name'];
-        $email = $_POST['email'];
-        $nachricht = $_POST['nachricht'];
-
-        $sql = "INSERT INTO kontakte (Name, email, nachricht) VALUES ('$name', '$email', '$nachricht');";
-        $result = query($sql);
-        confirm($result);
-
-        header("Location: index.php");
-    }
-}
-
-
-// Bucher verlehien.... 
 // Kunden ID
 function kundeNr()
 {
@@ -728,6 +727,23 @@ function ausleihen()
         confirm($result);
 
         header('Location: index.php?aufreise');
+    }
+}
+
+// ------------------------------------------------------------------------------------------ //
+// Kontakte formular
+function kontaktFormular()
+{
+    if (isset($_POST['submit'])) {
+        $name = $_POST['Name'];
+        $email = $_POST['email'];
+        $nachricht = $_POST['nachricht'];
+
+        $sql = "INSERT INTO kontakte (Name, email, nachricht) VALUES ('$name', '$email', '$nachricht');";
+        $result = query($sql);
+        confirm($result);
+
+        header("Location: index.php");
     }
 }
 
