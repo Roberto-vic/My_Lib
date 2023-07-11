@@ -3,6 +3,7 @@
 <div class="col ms-auto mt-5">
     <div class="mt-5 pt-3 text-center mb-3">
         <h3 class="page-header">Verlage</h3>
+        
     </div>
     <div class="row ms-5">
         <div class="col-md-9 offset-1">

@@ -28,22 +28,22 @@ function last_id()
     return $dbh->lastInsertId();
 }
 
-// function set_message($msg)
-// {
-//     if (!empty($msg)) {
-//         $_SESSION['message'] = $msg;
-//     } else {
-//         $msg = "";
-//     }
-// }
+function set_message($msg)
+{
+    if (!empty($msg)) {
+        $_SESSION['message'] = $msg;
+    } else {
+        $msg = "";
+    }
+}
 
-// function display_message()
-// {
-//     if (isset($_SESSION['message'])) {
-//         echo $_SESSION['message'];
-//         unset($_SESSION['message']);
-//     }
-// }
+function display_message()
+{
+    if (isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+}
 
 // ----------------------------------------------------------------- //
 // Autor Liste
@@ -131,9 +131,9 @@ function buchListe()
     INNER JOIN geschrieben ON Signatur = Signatur_ID 
     INNER JOIN verlage ON Verlag_Nr = Verlag_ID 
     INNER JOIN kategorien ON Kategorie = Kategorie_ID 
-    INNER JOIN autoren ON Autor_ID = Autor_Nr;
+    INNER JOIN autoren ON Autor_ID = Autor_Nr
     GROUP BY 1
-    ORDER BY Signatur_ID ASC";
+    ORDER BY Signatur_ID ASC;";
     $result = query($sql);
     confirm($result);
 

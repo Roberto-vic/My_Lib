@@ -6,7 +6,7 @@
         <h3 class="page-header">Autoren</h3>
     </div>
     <div class="row">
-        <div class="col-md-6 offset-2">
+        <div class="col-md-7 offset-2">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -23,7 +23,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-md-2 no-wrap">
+        <div class="col-md-1 no-wrap">
             <h3>Autor hinzufügen</h3>
             <form action="index.php?autoren" method="post">
                 <label for="kategorie">Vorname:</label>

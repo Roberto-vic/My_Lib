@@ -71,13 +71,13 @@
                         <a class="nav-link" href="index.php?verlag">Verlag</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?aufreise">Auf reise</a>
+                        <a class="nav-link" href="index.php?aufreise">Auf Reise</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?nachrichte">Nachrichten</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?mitarbeiter">Mitarbeitern</a>
+                        <a class="nav-link" href="index.php?mitarbeiter">Mitarbeiter</a>
                     </li>
                 </ul>
             </div>

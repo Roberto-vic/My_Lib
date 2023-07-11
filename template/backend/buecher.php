@@ -5,7 +5,7 @@
         <h3 class="page-header">Verfügbare Werke</h3>
     </div>
     <div class="row ms-5">
-        <div class="col-md-9">
+        <div class="col-md-10">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -25,7 +25,7 @@
             </table>
         </div>
         
-        <div class="col-md-2 no-wrap">
+        <div class="col-md-1 no-wrap">
             <h3>Buch hinzufügen</h3>
             <a href="index.php?prodEinfuegen" class="btn btn-outline btn-sm"><i class="fa-solid fa-plus fa-xs" style="color: #e56815;"></i> Add</a>
         </div>

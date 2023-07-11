@@ -36,10 +36,14 @@
                     <select name="role" id="">
                         <option value="admin">Admin</option>
                         <option value="ausbilder">Ausbilder</option>
-                        <option value="lagerist">Lagerist</option>
+                        <option value="assistent">Bibbliothekassistent</option>
+                        <option value="chef">Chef</option>
+                        <option value="archivare">Archivare</option>
+                        <option value="receptionist">Receptionist</option>                        
+                        <option value="techniker">Bibbliothektechniker</option>
                     </select>
                 <div class="form-group mt-3">
-                    <input type="submit" name="Einfügen" class="btn btn-outline" value="Einfügen">
+                    <input type="submit" name="Einfügen" class="btn -outline" value="Einfügen">
                 </div>
             </div>
     </form>

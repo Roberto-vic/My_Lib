@@ -51,7 +51,10 @@ if (isset($_GET['id'])) {
                         <?php autoren() ?>
                     </select>
                 </div>
-
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" name="isbn" class="form-control mb-3" value='<?php echo $isbn ?>'>
+                </div>
                 <div class="form-group">
                     <label for="info">Beschreibung</label>
                     <textarea name="beschreibung" cols="30" rows="8" class="form-control" type="text" id="editor1" value=''><?php echo $beschreibung ?></textarea>
@@ -64,11 +67,6 @@ if (isset($_GET['id'])) {
             <!--fine col-8-->
 
             <div class="col-md-5">
-
-                <div class="form-group">
-                    <label for="isbn">ISBN</label>
-                    <input type="text" name="isbn" class="form-control mb-3" value='<?php echo $isbn ?>'>
-                </div>
                 <div class="form-group">
                     <label for="verlag">Verlag</label>
                     <select name="verlag" class="form-control mb-3">
@@ -93,7 +91,7 @@ if (isset($_GET['id'])) {
                     <label for="bilder">Bilder</label>
                     <input type="file" name="bilder">
                     <p></p>
-                    <img src='../assets/img_art/<?php echo $bild ?>' alt="" style="width: 50%;">
+                    <img src='../assets/img_art/<?php echo $bild ?>' alt="" style="width: 30%;">
                 </div>
 
                 <div class="form-group mt-3">
