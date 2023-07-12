@@ -32,7 +32,7 @@ if(isset($_POST['kunde'])){
 <div class="col-11 ms-auto mt-5 mb-auto">
     <div class="row ms-5">
         <div class="mt-5 pt-3 text-center mb-4">
-            <h3 class="page-header">Neues Buch verlehien</h3>
+            <h3 class="page-header">Neues Buch verleihen</h3>
         </div>
         <form action="" method="post">
             <div class="row ms-5">

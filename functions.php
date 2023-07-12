@@ -170,7 +170,7 @@ function neuesBuch()
 
         $titel = htmlspecialchars($_POST['titel']);
         $autor = $_POST['autoren'];
-        $beschreibung = htmlspecialchars($_POST['beschreibung']);
+        $beschreibung = $_POST['beschreibung'];
         $kategorie = $_POST['kategorie'];
         $verlag = $_POST['verlag'];
         $isbn = htmlspecialchars($_POST['isbn']);
@@ -202,7 +202,7 @@ function buchUpdate()
 
         $titel = htmlspecialchars($_POST['titel']);
         $autor = $_POST['autor'];
-        $beschreibung = htmlspecialchars($_POST['beschreibung']);
+        $beschreibung = $_POST['beschreibung'];
         $isbn = htmlspecialchars($_POST['isbn']);
         $kategorie = $_POST['kategorie'];
         $verlag = $_POST['verlag'];
